@@ -1,10 +1,12 @@
 <?php
 
-namespace App\AppPlugin\PortalCard\Admin;
+namespace App\AppPlugin\Quiz\Admin;
 
 
 use App\AppPlugin\PortalCard\Models\PortalCardInput;
 use App\AppPlugin\PortalCard\Models\PortalCardInputTranslation;
+use App\AppPlugin\Quiz\Models\AppQuizAnswer;
+use App\AppPlugin\Quiz\Models\AppQuizQuestion;
 use App\Http\Controllers\AdminMainController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -13,17 +15,17 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
 
-class PortalCardInputController extends AdminMainController {
+class AdminQuizController extends AdminMainController {
 
 
     function __construct() {
 
         parent::__construct();
-        $this->controllerName = "PortalCard";
-        $this->PrefixRole = 'PortalCard';
+        $this->controllerName = "PortalQuiz";
+        $this->PrefixRole = 'PortalQuiz';
         $this->selMenu = "admin.";
         $this->PrefixCatRoute = "";
-        $this->PageTitle = __('admin/card.app_menu');
+        $this->PageTitle = __('admin/quiz.app_menu');
         $this->PrefixRoute = $this->selMenu . $this->controllerName;
 
         $sendArr = [
@@ -71,7 +73,7 @@ class PortalCardInputController extends AdminMainController {
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     public function ClearCash() {
-        Cache::forget('CashCardInputTemplate');
+        Cache::forget('XXXXXXXXXX');
     }
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -99,12 +101,12 @@ class PortalCardInputController extends AdminMainController {
         } elseif ($currentRoute == $this->PrefixRoute . '.index') {
             $isActive = 1;
             $reloadRoute = $this->PrefixRoute . '.index';
-            $orderBy =  'position';
+            $orderBy = 'position';
 
         } elseif ($currentRoute == $this->PrefixRoute . '.indexDisabled') {
             $isActive = 0;
             $reloadRoute = $this->PrefixRoute . '.indexDisabled';
-            $orderBy =  'position_vip';
+            $orderBy = 'position_vip';
         }
 
         $rowData = PortalCardInput::query()
@@ -126,15 +128,52 @@ class PortalCardInputController extends AdminMainController {
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     public function create() {
+
+
         $pageData = $this->pageData;
         $pageData['ViewType'] = "Add";
-        $rowData = new PortalCardInput();
+        $rowData = new AppQuizQuestion();
+
+//        dd($rowData);
         $title = __('admin/portalCard.form_add');
-        return view('AppPlugin.ConfigPortalCard.form')->with([
+        return view('AppPlugin.Quiz.form')->with([
             'rowData' => $rowData,
             'pageData' => $pageData,
             'title' => $title
         ]);
+    }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+    public function store(Request $request) {
+        // التحقق من صحة البيانات
+        $validated = $request->validate([
+//            'question' => 'required|string',
+//            'answers' => 'required|array|min:4',
+//            'answers.*' => 'string',
+//            'correct_answer' => 'required|integer|exists:app_quiz_answers,id',
+        ]);
+
+        // إضافة السؤال
+        $question = new AppQuizQuestion();
+        $question->question = $request->input('question');
+        $question->position = 0;
+        $question->save();
+
+        // إضافة الإجابات
+        foreach ($request->input('answers') as $index => $answerText) {  // استخدم اسم متغير مناسب
+            $isCorrect = $index + 1 == $request->input('correct_answer') ? 1 : 0;
+
+            // إنشاء إجابة جديدة
+            $answer = new AppQuizAnswer();
+            $answer->question_id = $question->id;
+            $answer->answer = $answerText;  // استخدم القيمة الصحيحة هنا
+            $answer->is_correct = $isCorrect;
+
+            $answer->save();
+        }
+
+        return redirect()->route($this->PrefixRoute.'.create')->with('success', 'تم إضافة السؤال والإجابات بنجاح');
     }
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

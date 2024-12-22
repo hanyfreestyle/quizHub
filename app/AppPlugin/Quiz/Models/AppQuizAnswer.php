@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 
-class QuizAnswers extends Model {
-    protected $table = "app_quiz_questions";
+class AppQuizAnswer extends Model {
+    protected $table = "app_quiz_answers";
     protected $primaryKey = 'id';
-    protected $fillable = [''];
+    protected $fillable = ['question_id','',];
     public $timestamps = false;
 
 
     public function question(): BelongsTo {
-        return $this->belongsTo(QuizQuestions::class, 'question_id', 'id');
+        return $this->belongsTo(AppQuizQuestion::class, 'question_id', 'id');
     }
 
 }

@@ -61,23 +61,23 @@ trait QuizFileTraits {
             $mainMenu->roleView = "PortalQuiz_view";
             $mainMenu->save();
 
-//            $subMenu = new AdminMenu();
-//            $subMenu->parent_id = $mainMenu->id;
-//            $subMenu->sel_routs = "PortalCard.create";
-//            $subMenu->url = "admin.PortalCard.create";
-//            $subMenu->name = "admin/card.app_menu_add";
-//            $subMenu->roleView = "PortalCard_add";
-//            $subMenu->icon = "fas fa-plus-circle";
-//            $subMenu->save();
+            $subMenu = new AdminMenu();
+            $subMenu->parent_id = $mainMenu->id;
+            $subMenu->sel_routs = "PortalQuiz.create";
+            $subMenu->url = "admin.PortalQuiz.create";
+            $subMenu->name = "admin/quiz.app_menu_add";
+            $subMenu->roleView = "PortalQuiz_add";
+            $subMenu->icon = "fas fa-plus-circle";
+            $subMenu->save();
 
-//            $subMenu = new AdminMenu();
-//            $subMenu->parent_id = $mainMenu->id;
-//            $subMenu->sel_routs = "PortalCard.index";
-//            $subMenu->url = "admin.PortalCard.index";
-//            $subMenu->name = "admin/card.app_menu_active";
-//            $subMenu->roleView = "PortalCard_view";
-//            $subMenu->icon = "fas fa-list";
-//            $subMenu->save();
+            $subMenu = new AdminMenu();
+            $subMenu->parent_id = $mainMenu->id;
+            $subMenu->sel_routs = "PortalQuiz.index";
+            $subMenu->url = "admin.PortalQuiz.index";
+            $subMenu->name = "admin/quiz.app_menu_list";
+            $subMenu->roleView = "PortalQuiz_view";
+            $subMenu->icon = "fas fa-list";
+            $subMenu->save();
 //
 //            $subMenu = new AdminMenu();
 //            $subMenu->parent_id = $mainMenu->id;

@@ -1,16 +1,17 @@
 <?php
 
-use App\AppPlugin\PortalCard\Admin\PortalCardInputController;
+use App\AppPlugin\Quiz\Admin\AdminQuizController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('quiz')->name('PortalQuiz.')
-    ->controller(PortalCardInputController::class)->group(function () {
+    ->controller(AdminQuizController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/disabled', 'index')->name('indexDisabled');
         Route::get('/vip', 'index')->name('indexVip');
         Route::get('/create', 'create')->name('create');
         Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/store/', 'store')->name('store');
         Route::post('/saveUpdate/{id}', 'saveUpdate')->name('saveUpdate');
         Route::get('/delete/{id}', 'delete')->name('delete');
         Route::post('/sortInput', 'sortInputSave')->name('sortInput');
