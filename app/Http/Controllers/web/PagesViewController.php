@@ -22,7 +22,7 @@ class PagesViewController extends WebMainController {
 
 //        $questions = AppQuizQuestion::query()->with('answers')->get();
 
-        $questions = AppQuizQuestion::query()->take('2')->with(['answers' => function($query) {
+        $questions = AppQuizQuestion::query()->with(['answers' => function($query) {
             $query->inRandomOrder();
         }])->get();
 
