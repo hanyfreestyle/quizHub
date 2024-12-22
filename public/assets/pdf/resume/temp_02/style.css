@@ -1,0 +1,161 @@
+body {
+    direction: ltr;
+
+}
+
+body table {
+    width: 100%;
+}
+
+
+.banner {
+    display: block;
+    width: 100%;
+    height: 330px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    border-radius: 0 0 150px 150px;
+    padding-top: 50px;
+}
+
+.banner_2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    height: 150px;
+
+
+}
+
+.banner_3 {
+    display: block;
+    width: 100%;
+    height: 450px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    border-radius: 150px 150px 0 0;
+    padding-top: 70px;
+
+}
+.side_container_2 {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+
+}
+
+
+
+.row_left {
+    float: left;
+    margin-left: 30px;
+    width: 260px;
+
+    height: 100%;
+    text-align: center;
+    background-color: var(--left-bg)
+}
+
+.row_right {
+    float: left;
+
+    height: 100%;
+    text-align: center;
+    background-color: var(--right-bg)
+}
+
+.profile_photo {
+    padding-top: 20px;
+    width: 100%
+}
+
+.profile_photo_div {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    border: 5px solid rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.profile_photo_div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+
+.profile_name {
+    color: var(--left-text)
+}
+
+.profile_job_title {
+    margin-top: 3px;
+    color: var(--left-text);
+    opacity: var(--left-opacity)
+}
+
+.profile_about {
+    margin-top: 20px;
+    color: var(--left-text);
+    opacity: var(--left-opacity)
+}
+
+
+.contactInfo table {
+    margin-bottom: 10px;
+}
+
+.contactInfo .icon {
+    width: 30px;
+    text-align: center;
+    color: var(--left-text);
+    opacity: var(--left-opacity)
+}
+
+.contactInfo .icon i {
+    font-size: 16px
+}
+
+.contactInfo .title {
+    margin-bottom: 1px;
+    color: var(--left-text);
+    opacity: var(--left-opacity)
+}
+
+.contactInfo .des {
+    width: 160px !important;
+    color: var(--left-text);
+    opacity: var(--left-opacity);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal
+}
+
+.headlineSide {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: var(--left-headlineSide)
+}
+
+.headlineSide table .icon {
+    width: 20px;
+    text-align: center
+}
+
+
+.references {
+
+    text-align: left;
+    margin-bottom: 15px;
+    color: var(--left-text);
+}
+
+.references div {
+    display: block;
+    opacity: var(--left-opacity)
+}
+

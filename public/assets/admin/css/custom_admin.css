@@ -1,0 +1,178 @@
+.RightPhotoView {
+
+}
+
+.RightPhotoView .form_current_photo {
+    display: block;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.RightPhotoView .form_current_remove {
+    position: relative;
+    bottom: 10px;
+}
+
+
+.RightPhotoView .form_current_remove a {
+    cursor: pointer !important;
+    display: block;
+}
+
+.RightPhotoView .form_current_photo img {
+    max-height: 150px;
+}
+
+.schoolTopMenu {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.schoolTopMenu .menu-item {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px 10px;
+    text-align: center;
+    background-color: white;
+    margin-bottom: 15px;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.schoolTopMenu .menu-item:hover {
+    background-color: #e9ecef;
+}
+
+.schoolTopMenu .menu-item i {
+    font-size: 24px;
+    color: #0d6efd;
+    margin-bottom: 10px;
+}
+
+.schoolTopMenu .menu-item span {
+    display: block;
+    color: #495057;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.schoolTopMenu .menu-item.active {
+    background-color: #0d6efd;
+    border: 0px solid #0d6efd;
+}
+
+.schoolTopMenu .menu-item.active i,
+.schoolTopMenu .menu-item.active span {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .schoolTopMenu .menu-item {
+        padding: 7px 8px;
+    }
+
+    .schoolTopMenu .menu-item i {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    .schoolTopMenu .menu-item span {
+        display: none;
+    }
+}
+
+
+.SchoolInfo h2 {
+    color: red;
+    font-size: 25px;
+}
+.SchoolInfo span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+
+.PortalInputList{
+
+}
+.PortalInputList .input_div{
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,.2);
+    margin-bottom: 8px;
+
+}
+
+
+.PortalInputList .input_div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.PortalInputList .input_div .icon {
+    max-width: 20%!important;
+    flex-shrink: 0;
+    text-align: center;
+    margin-left: 2px;
+}
+
+.PortalInputList .input_div .icon i {
+    font-size: 25px;
+
+    color: #555;
+}
+
+.PortalInputList .input_div .action {
+    flex-grow: 1;
+    text-align: left;
+    margin-right: 10px;
+    max-width: 80%!important;
+
+}
+
+.PortalInputList .input_div .action h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(0,0,0,.8);
+    margin: 0 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.PortalInputList .input_div .action .btn{
+    padding: 0px 5px!important;
+
+}
+.PortalInputList .input_div .action .btn i{
+    font-size: 13px;
+
+}
+
+/*.PortalInputList .input_div .action a {*/
+/*    margin-right: 10px;*/
+/*    font-size: 14px;*/
+/*    color: #007bff;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*.PortalInputList .input_div .action a:hover {*/
+/*    text-decoration: underline;*/
+/*}*/

@@ -1,0 +1,148 @@
+.My_Chart_Container {
+    width: 100%;
+    height: 300px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #CCCCCC;
+
+}
+
+.My_Chart_Container .placeholder {
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.My_Chart_Legend {
+    direction: rtl;
+    text-align: right;
+    font-size: 17px !important;
+}
+
+.My_Chart_Legend .legendColorBox {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+}
+
+@media (max-width: 767.98px) {
+    .small-box p {
+        font-size: 14px;
+        text-align: right;
+        font-weight: bold;
+    }
+
+    .small-box h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 2.2rem;
+        text-align: right;
+        margin: 0 0 10px;
+        padding: 0;
+        white-space: nowrap;
+    }
+
+    .small-box > .small-box-footer {
+        font-size: 14px;
+    }
+
+    .small-box > .small-box-footer i {
+        display: none;
+    }
+
+    .small-box .icon {
+        display: inline;
+        font-size: 40px;
+    }
+
+    .small-box .icon i.fas {
+        font-size: 50px;
+    }
+
+}
+
+
+
+.ChartBoxInfo .info-box .info-box-content{
+    line-height: normal;
+
+}
+
+.ChartBoxInfo .info-box {
+    box-shadow: 0 0 1px rgba(0,0,0,.125),0 1px 1px rgba(0,0,0,.095);
+    border-radius: .25rem;
+    background-color: #fff;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 1rem;
+    min-height: 50px;
+    padding: .3rem;
+    position: relative;
+    width: 100%;
+}
+
+.ChartBoxInfo .info-box .info-box-icon {
+    border-radius: .25rem;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 1.25rem;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    width: 40px;
+
+    color: #17a2b8 ;
+
+}
+
+
+.ChartBoxInfo .info-box .info-box-text {
+    font-weight: bold;
+    color: #17a2b8 ;
+
+}
+
+.ChartBoxInfo .info-box .info-box-number {
+    display: block;
+    margin-top:0!important;
+    font-weight: 700;
+}
+
+
+.reportChart .adminCard .card-title {
+    font-weight: bold;
+    font-size: 16px;
+    color:rgba(0,0,0,.7);
+}
+.reportChart .adminCard .card-title i {
+    color: #007bff;
+}
+.reportChart .adminCard .card-title span {
+    font-weight: bold;
+    font-size: 15px;
+    color:rgba(0,0,0,.4);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.closed_lead_card .small-box h3{
+    font-size: 3.3rem;
+    margin-bottom: 0!important;
+
+}
+.closed_lead_card .small-box p{
+    margin-bottom: 5px!important;
+}
+
+@media (max-width: 767.98px) {
+    .closed_lead_card  .small-box h3 {
+        text-align: center;
+    }
+    .closed_lead_card .small-box p{
+        text-align: center;
+    }
+}
+

@@ -1,0 +1,147 @@
+:root {
+    --theme-default: rgba(0, 136, 204, 1);
+    --shadow-color: rgba(0, 0, 0, .1);
+    --page-title-bg: rgba(0, 136, 204, 1);
+    --page-title-text: rgba(255, 255, 255, 1);
+    --page-header-text: rgba(0, 0, 0, 1);
+    --page-header-border: rgba(0, 0, 0, .1);
+    --page-body-bg: rgba(240, 240, 240, 1);
+    --side-bar-bg: rgba(0, 136, 204, 1);
+    --side-bar-text: rgba(255, 255, 255, 1);
+
+    --form-input-color: rgba(0, 0, 0, .6);
+    --form-input-i-color:rgba(0, 0, 0, .6);
+    --form-input-label-color: rgba(0, 0, 0, .8);
+    --form-input-err-color: #dc3545;
+
+    --base-color-white: 0,0,0;
+    --card-text-h1: rgba(0, 0, 0, .6);
+    --card-text-h2: rgba(0, 0, 0, .6);
+    --card-text-p: rgba(0, 0, 0, .6);
+    --card-text-i: rgba(0, 0, 0, .6);
+
+    --card-btn-bg: 0, 0, 0;
+}
+
+body.dark-only {
+    --base-opacity: 0.5;
+
+    --page-title-bg: rgba(0, 136, 204, .5);
+    --page-title-text: rgba(255, 255, 255, .8);
+    --page-body-bg: #121313;
+
+
+    --form-input-i-color: hsla(0, 0%, 100%, .6);
+    --form-input-label-color: rgba(255,255,255,.9);
+    --form-input-color: rgba(255,255,255,.8);
+    --form-input-err-color: #dc3545;
+
+
+    --base-color-white: 255,255,255;
+    --card-text-h1: rgba(255,255,255, .9);
+    --card-text-h2: rgba(255,255,255, .6);
+    --card-text-p: rgba(255,255,255, .6);
+    --card-text-i: rgba(255,255,255, .6);
+    --card-border: rgba(255,255,255, .05);
+    --card-btn-bg: 43, 94, 94;
+
+}
+
+body.dark-only .page-wrapper .page-body-wrapper .page-body .card:not(.email-body) {border: 1px solid var(--card-border) !important;}
+.page-body{background-color:var(--page-body-bg)!important}
+body.dark-only .sidebar-wrapper{box-shadow:1px 0 6px 0 rgba(0,0,0,0.2)!important}
+body.dark-only .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper{background-color:#171818!important;opacity:1!important}
+body.dark-only .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .logo-wrapper{background-color:#171818!important;box-shadow:none!important}
+
+html[dir="rtl"] .sidebar-list .according-menu {left: 15px!important;right: unset!important;}
+html[dir="rtl"] .sidebar-list i.fa-thumb-tack {left: 50px!important;right: unset!important;}
+li .sidebar-link{border-radius:10px!important;margin-bottom:5px!important;font-weight:600!important}
+li .sidebar-link span{letter-spacing:normal!important}
+li .sidebar-link:hover{background-color:var(--side-bar-bg)!important}
+li .sidebar-link:hover span,li .sidebar-link:hover svg,li .sidebar-link:hover i{color:var(--side-bar-text)!important;stroke:var(--side-bar-text)!important}
+li .sidebar-link.active{background-color:var(--side-bar-bg)!important}
+li .sidebar-link.active span,li .sidebar-link.active svg,li .sidebar-link.active i{color:var(--side-bar-text)!important;stroke:var(--side-bar-text)!important}
+.sidebar-list i.fa-thumb-tack{background-color:var(--side-bar-bg)!important;color:var(--side-bar-text)!important}
+li .sidebar-submenu li a{letter-spacing:normal!important}
+li .sidebar-submenu::before{background:var(--side-bar-bg)!important}
+
+
+
+.input_color_box{opacity: .7!important;}
+.input_color_box:hover{opacity: 1!important;}
+.input_color_box.social_facebook {color:#fff!important;background-color:#1877F2!important;}
+.input_color_box.social_twitter {color:#fff!important;background-color:#1DA1F2!important}
+.input_color_box.social_linkedin {color:#fff!important;background-color:#0077B5!important}
+.input_color_box.social_instagram {color:#fff!important;background-color:#E4405F!important}
+.input_color_box.social_youtube {color:#fff!important;background-color:red!important}
+.input_color_box.social_pinterest {color:#fff!important;background-color:#E60023!important}
+.input_color_box.social_snapchat {color:#000!important;background-color:#FFFC00!important}
+.input_color_box.social_tiktok {color:#fff!important;background-color:#010101!important}
+.input_color_box.social_reddit {color:#fff!important;background-color:#FF4500!important}
+.input_color_box.social_vimeo {color:#fff!important;background-color:#1AB7EA!important}
+.input_color_box.social_quora {color:#fff!important;background-color:#B92B27!important}
+.input_color_box.social_tumblr {color:#fff!important;background-color:#36465D!important}
+.input_color_box.social_clubhouse {color:#000!important;background-color:#F2E7DA!important}
+.input_color_box.social_twitch {color:#fff!important;background-color:#9146FF!important}
+.input_color_box.social_medium {color:#fff!important;background-color:#12100E!important}
+.input_color_box.social_dribbble {color:#fff!important;background-color:#EA4C89!important}
+.input_color_box.social_behance {color:#fff!important;background-color:#1769FF!important}
+.input_color_box.social_flickr {color:#fff!important;background-color:#0063DC!important}
+
+
+
+.input_color_box.messaging_whatsapp {color:#fff!important;background-color:#25D366!important}
+.input_color_box.messaging_telegram {color:#fff!important;background-color:#08c!important}
+.input_color_box.messaging_messenger {color:#fff!important;background-color:#006AFF!important}
+.input_color_box.messaging_teams {color:#fff!important;background-color:#464EB8!important;}
+.input_color_box.messaging_viber {color:#fff!important;background-color:#665CAC!important}
+.input_color_box.messaging_wechat {color:#fff!important;background-color:#7BB32E!important}
+.input_color_box.messaging_line {color:#fff!important;background-color:#00C300!important}
+.input_color_box.messaging_kik {color:#fff!important;background-color:#82BC23!important}
+.input_color_box.messaging_signal {color:#fff!important;background-color:#3A76F0!important}
+.input_color_box.messaging_slack {color:#fff!important;background-color:#4A154B!important}
+.input_color_box.messaging_discord {color:#fff!important;background-color:#5865F2!important}
+.input_color_box.messaging_skype {color:#fff!important;background-color:#00AFF0!important}
+.input_color_box.messaging_google_chat {color:#fff!important;background-color:#34A853!important}
+.input_color_box.messaging_snapchat {color:#000!important;background-color:#FFFC00!important}
+
+
+.input_color_box.field_web {color:#fff!important;background-color:#6c757d!important}
+.input_color_box.field_email {color:#fff!important;background-color:#007bff!important}
+.input_color_box.field_phone {color:#fff!important;background-color:#28a745!important}
+.input_color_box.field_company_url {color:#fff!important;background-color:#17a2b8!important}
+.input_color_box.field_link {color:#fff!important;background-color:#ffc107!important}
+.input_color_box.field_address {color:#fff!important;background-color:#dc3545!important}
+.input_color_box.field_google_map {color:#fff!important;background-color:#fd7e14!important}
+.input_color_box.field_blog_url {color:#fff!important;background-color:#6f42c1!important}
+.input_color_box.field_portfolio_url {color:#fff!important;background-color:#343a40!important}
+.input_color_box.field_country {color:#fff!important;background-color:#20c997!important}
+.input_color_box.field_city {color:#fff!important;background-color:#6610f2!important}
+.input_color_box.field_postal_code {color:#fff!important;background-color:#e83e8c!important}
+
+.input_color_box.business_shopify {color:#fff!important;background-color:#96bf48!important}
+.input_color_box.business_woocommerce {color:#fff!important;background-color:#96588a!important}
+.input_color_box.business_amazon_store {color:#fff!important;background-color:#f90!important}
+.input_color_box.business_zendesk {color:#fff!important;background-color:#03363d!important}
+.input_color_box.business_freshdesk {color:#fff!important;background-color:#0aaf5b!important}
+.input_color_box.business_livechat {color:#fff!important;background-color:#0d84ff!important}
+.input_color_box.business_github {color:#fff!important;background-color:#333!important}
+.input_color_box.business_gitlab {color:#fff!important;background-color:#e24329!important}
+.input_color_box.business_bitbucket {color:#fff!important;background-color:#205081!important}
+.input_color_box.business_calendly {color:#fff!important;background-color:#006bff!important}
+.input_color_box.business_zoom {color:#fff!important;background-color:#2d8cff!important}
+.input_color_box.business_google_meet {color:#fff!important;background-color:#34a853!important}
+.input_color_box.business_microsoft_teams_meeting {color:#fff!important;background-color:#464eb8!important}
+.input_color_box.business_trello {color:#fff!important;background-color:#0079bf!important}
+.input_color_box.business_asana {color:#fff!important;background-color:#e05a47!important}
+.input_color_box.business_google_drive {color:#fff!important;background-color:#4285f4!important}
+.input_color_box.business_dropbox {color:#fff!important;background-color:#007ee5!important}
+
+.swal2-popup {background-color: #2c2c2c !important;color: #fff !important;}
+.swal2-confirm{background-color:#4CAF50!important;color:#fff!important;border-radius:5px}
+.mySweetPopup {background-color: #2c2c2c;color: #fff;}
+.mySweetTitle{font-size:1.5rem;color:#fff}
+.mySweetContent{font-size:1.2rem;color:#ddd}
+.mySweetConfirmBtn{background-color:#4CAF50!important;color:#fff!important;border-radius:5px}
+.mySweetCancelBtn{background-color:#f44336!important;color:#fff!important;border-radius:5px}
+.mySweetOkBtn{background-color:#4CAF50;color:#fff;border-radius:5px}

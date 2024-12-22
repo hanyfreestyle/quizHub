@@ -1,0 +1,200 @@
+.previewTemplateStar {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    padding: 0;
+}
+
+.previewTemplateStar span {
+    padding: 0;
+    border-radius: 50%!important;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+
+.previewTemplate_1 {
+    width: 100%;
+    max-width: 100%;
+    min-height: 350px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, .2);
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+}
+
+.previewTemplate_1 .holder {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.previewTemplate_1 .photos {
+    position: relative;
+    width: 100%;
+    height: 120px;
+}
+
+.previewTemplate_1 .cover {
+    width: 100%;
+    height: 100%;
+}
+
+.previewTemplate_1 .cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.previewTemplate_1 .profile {
+    position: absolute;
+    bottom: -40px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 1);
+}
+
+.previewTemplate_1 .profile.dir_ar {
+    left: 25px;
+
+}
+
+.previewTemplate_1 .profile.dir_en {
+    right: 25px;
+}
+
+.previewTemplate_1 .profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.previewTemplate_1  .name {
+    margin-top: 20px;
+    width: 100%;
+    padding: 5px 10px;
+
+}
+.previewTemplate_1  .name.dir_ar {
+    text-align: right;
+}
+.previewTemplate_1  .name.dir_en {
+    text-align: left;
+}
+
+.previewTemplate_1 .name h1 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.previewTemplate_1 .icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* لضمان أن الأيقونات ستكون في المنتصف */
+    gap: 15px;
+    width: 100%;
+    margin-top:30px;
+}
+
+.previewTemplate_1 .icons i {
+    width: 45px;
+    height: 45px;
+    background-color: #4b9cd3; /* لون الخلفية */
+    border-radius: 5px;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    justify-content: center; /* لضمان محاذاة الأيقونة في المنتصف */
+    align-items: center; /* لضمان محاذاة الأيقونة في المنتصف */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+    .previewTemplate_1 .previewTemplate_1 {
+        height: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.previewTemplate_2 {
+    width: 100%;
+    max-width: 400px;
+    min-height: 420px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, .2);
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    background-size: cover;
+}
+
+.previewTemplate_2 .holder {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+
+
+.previewTemplate_2 .profile {
+    position: absolute;
+    top: 70px;
+    width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 1);
+}
+
+
+.previewTemplate_2 .profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.previewTemplate_2  .name {
+    margin-top: 20px;
+    width: 100%;
+    padding: 5px 10px;
+    text-align: center;
+    position: absolute;
+   top: 330px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .previewTemplate_1 .previewTemplate_1 {
+        height: auto;
+    }
+}

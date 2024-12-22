@@ -1,0 +1,283 @@
+.contentName {
+    display: none
+}
+
+.contactSection {
+    width: 100%;
+    padding: 20px 0;
+    margin-bottom: 50px
+}
+
+.containerIconBoxed .contactSection {
+    padding: 0 !important
+}
+
+.contactSection .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px
+}
+
+.contactList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.listRow {
+    text-decoration: none;
+    color: rgba(var(--body-text), 1);
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-radius: 8px;
+    background: var(--icon-card-bg);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: all .3s ease;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(var(--white), .1)
+}
+
+.listRow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6)
+}
+
+.iconBox {
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--icon-radius);
+    background: var(--def-template-color);
+    margin-right: 15px;
+    flex-shrink: 0
+}
+
+.iconBox i {
+    font-size: 28px
+}
+
+.content-wrapper {
+    flex: 1;
+    min-width: 0
+}
+
+.content-wrapper h4 {
+    margin: 0 0 5px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(var(--icon-card-color), 1)
+}
+
+.content-wrapper h4.number {
+    font-size: 20px;
+    direction: ltr;
+    letter-spacing: 1px
+}
+
+.content-wrapper address {
+    margin: 0;
+    font-style: normal;
+    color: rgba(var(--icon-card-color), .5);
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.containerIconBoxed .contactSection {
+    padding: 5px
+}
+
+.containerIconBoxed .container {
+    padding: 5px
+}
+
+.containerIconBoxed .contactList {
+    gap: 15px
+}
+
+@media only screen and (min-width: 600px) {
+    .deskList .listRow {
+        width: calc(33.333% - 20px)
+    }
+
+    .containerIconBoxed .deskList .listRow {
+        width: calc(49.9999% - 20px);
+        border: 1px solid rgba(var(--white), .1)
+    }
+
+    .deskGrid .listRow {
+        width: calc(12.5% - 20px);
+        flex-direction: column;
+        text-align: center
+    }
+
+    .containerIconBoxed .deskGrid .listRow {
+        width: calc(25% - 20px)
+    }
+
+    .deskGrid .content-wrapper {
+        display: none
+    }
+
+    .deskGrid .listRow {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        padding: 10px;
+        border: 1px solid rgba(var(--white), .1);
+        background: none
+    }
+
+    .containerIconBoxed .listRow {
+        padding: 15px
+    }
+
+    .deskGrid .iconBox {
+        width: 80px;
+        height: 80px;
+        margin: auto !important;
+        transition: all .3s ease
+    }
+
+    .containerIconBoxed .deskGrid .iconBox {
+        width: 55px;
+        height: 55px
+    }
+
+    .deskGrid .contentName {
+        display: flex;
+        margin-top: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        font-family: 'Poppins', Helvetica, sans-serif;
+        letter-spacing: .5px
+    }
+
+    .deskGrid .iconBox i {
+        font-size: 40px
+    }
+
+    .containerIconBoxed .deskGrid .iconBox i {
+        font-size: 30px
+    }
+
+    .deskGrid .listRowNoBorder {
+        border: 0 !important;
+        box-shadow: none !important
+    }
+}
+
+@media only screen and (max-width: 575.98px) {
+    .mobileList .listRow {
+        width: 100%;
+        border: 1px solid rgba(var(--white), .1);
+        background: none
+    }
+
+    .mobileGrid .listRow {
+        width: calc(25% - 20px);
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        padding: 3px
+    }
+
+    .mobileGrid .iconBox {
+        width: 70px;
+        height: 70px;
+        margin: auto
+    }
+
+    .mobileGrid .iconBox i {
+        font-size: 33px
+    }
+
+    .mobileGrid .content-wrapper {
+        display: none
+    }
+
+    .mobileGrid .contentName {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        margin-top: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        font-family: 'Poppins', Helvetica, sans-serif;
+        letter-spacing: .5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
+
+    .contactList {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .mobileGrid .listRow {
+        border: 0 !important;
+        background: none;
+        box-shadow: none
+    }
+
+    .mobileGrid .iconBox {
+        width: 60px;
+        height: 60px;
+        margin: auto
+    }
+
+    .mobileGrid .iconBox i {
+        font-size: 32px
+    }
+
+    .containerIconBoxed .contactList {
+        gap: 20px
+    }
+
+    .containerIconBoxed .contactList.mobileList {
+        gap: 10px
+    }
+
+    .mobileGrid .contentName {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        margin-top: 6px;
+        font-size: 10px;
+        font-weight: 400;
+        font-family: 'Poppins', Helvetica, sans-serif;
+        letter-spacing: .5px;
+        white-space: normal;
+        overflow: unset;
+        text-overflow: unset
+    }
+}
+
+[dir="rtl"] .content-wrapper h4.number {
+    text-align: right
+}
+
+[dir="rtl"] .listRow {
+    flex-direction: row-reverse
+}

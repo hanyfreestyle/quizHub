@@ -1,0 +1,90 @@
+
+
+
+
+.dd{
+    background-color: #171818;}
+.alert {
+    padding: 10px 15px !important;
+    margin-bottom: 10px !important;
+    display: block;
+    width: 100%;
+}
+
+.form_all_err {
+    display: block;
+    width: 100%;
+}
+
+
+
+.current_image h4 {
+    font-size: 18px;
+}
+
+.current_image .img-container {
+    max-width: 100%;
+    min-height: 200px;
+    max-height: 400px;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px dashed rgba(255, 255, 255, .2);
+}
+
+.current_image .img-container img {
+    display: block;
+    max-width: 95%;
+    max-height: 300px;
+    margin: auto;
+}
+
+@media only screen and (max-width: 575.98px) {
+    .current_image .img-container img {
+        display: block;
+        max-width: 95%;
+        max-height: 180px;
+        margin: auto;
+    }
+}
+
+
+.cropper_html h4 {
+    font-size: 18px;
+}
+
+.cropper_html .card-header p {
+    font-size: 14px;
+    letter-spacing: normal !important;
+}
+
+.cropper_html .img-container {
+    max-width: 100%;
+    min-height: 200px;
+    max-height: 400px;
+    margin: auto;
+    margin-bottom: 10px;
+    border: 1px dashed rgba(255, 255, 255, .2);
+}
+
+.cropper_html .error {
+    color: var(--form-input-err-color) !important;
+    margin-top: 10px;
+}
+
+.cropper_html .error p {
+    margin-bottom: 2px;
+    color: var(--form-input-err-color) !important;
+}
+
+
+@media screen and (max-width: 768px) {
+    .card_container .inputTemplateList {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+}
+
+
+
+

@@ -1,0 +1,27 @@
+.landing-page .left-subfooter img {
+    height: 50px!important;
+}
+
+.landing-page .landing-header {
+    background-color: #171818 ;
+
+    left: 0;
+    padding: 18px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.navbar-brand img{
+    max-height: 50px;
+
+
+}
+
+@media (max-width: 1699px) {
+    .landing-page .landing-header {
+        padding: 18px 70px;
+    }
+}
+

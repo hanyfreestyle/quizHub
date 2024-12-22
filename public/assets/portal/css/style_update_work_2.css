@@ -1,0 +1,154 @@
+.templateList {
+
+}
+
+.templateList h3 {
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+
+}
+
+.templateList .template_img_div {
+    width: 100%;
+    height: 360px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+
+}
+
+.templateList .template_img_div img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    margin: auto;
+}
+
+
+
+
+.templateEdit h3 {
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+
+.templateEdit .template_img_div {
+    width: 100%;
+    height: 500px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+}
+
+.templateEdit .template_img_div img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    margin: auto;
+}
+
+.template_but {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+.template_but a {
+    padding: 5px 12px;
+    letter-spacing: normal;
+}
+
+
+.templateEditPhoto h3 {
+    font-size: 13px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+
+.templateEditPhoto .template_img_div {
+    width: 100%;
+    height: 120px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+}
+
+.templateEditPhoto .template_img_div img {
+    display: block;
+    height: 100%;
+    width: auto;
+    margin: auto;
+
+}
+
+.notification_CardList {
+    display: flex;
+    padding: 10px 15px;
+
+    align-items: center;
+    justify-content: space-between; /* للتوزيع بين العناصر */
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.notification_CardList .card_img {
+    width: 45px;
+    height: 45px;
+    border-radius: 4px;
+    overflow: hidden; /* إخفاء أي جزء خارج الحاوية */
+}
+
+.notification_CardList .card_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* لجعل الصورة تتناسب مع الحاوية بشكل جيد */
+}
+
+.notification_CardList .card_name {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.notification_CardList .card_name h2 {
+    font-size: 16px !important;
+    margin: 0;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--theme-default);
+}
+
+.notification_CardList .card_name h3 {
+    font-size: 13px;
+    margin: 0;
+    font-weight: normal;
+    color: rgba(var(--base-color-white), .7);
+}
+
+
+.notification_CardList .card_action {
+    display: flex;
+    gap: 12px; /* لضبط المسافة بين الأيقونات */
+}
+
+.notification_CardList .card_action a {
+    text-decoration: none; /* إزالة الخط تحت الرابط */
+    font-size: 16px; /* حجم خط الأيقونات */
+    display: flex;
+    font-weight: normal;
+    align-items: center;
+    color: #333; /* اللون الافتراضي */
+}
+

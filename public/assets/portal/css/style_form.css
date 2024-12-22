@@ -1,0 +1,182 @@
+.customForm .formControl .input_dir_en {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+.customForm .formControl .input_dir_ar {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.customForm .form-control {
+    font-size: 14px;
+}
+
+.customForm .formControl {
+    margin-bottom: 10px !important;
+}
+
+@media only screen and (max-width: 575.98px) {
+    .customForm .formControl {
+        margin-bottom: 12px !important;
+    }
+}
+
+.customForm.was-validated .form-control:invalid {
+    border-color: var(--form-input-err-color) !important;
+}
+
+.formControl:focus, .form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(0, 0, 0, .1) !important;
+}
+
+.formControl::placeholder {
+    color: var(--form-input-color) !important;
+}
+
+.customForm .formControl label {
+    color: rgba(var(--base-color-white), .7) !important;
+    font-weight: 500 !important;
+    font-size: 12.5px !important;
+    letter-spacing: 0 !important;
+    margin-bottom: 6px;
+    padding-right: 3px;
+    padding-left: 3px;
+    /*color: darkred!important;*/
+}
+
+.customForm .formControl span.req {
+    color: var(--form-input-err-color) !important;
+}
+
+.customForm .formControl .input-container {
+    position: relative;
+}
+
+.customForm .formControl i {
+    color: rgba(var(--base-color-white), .3) !important;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 16px;
+}
+
+.customForm .formControl .withIcon {
+    padding-left: 35px !important;
+}
+
+.customForm .formControl .inputInfo {
+    width: 100%;
+    font-size: 12px;
+    margin-top: 5px;
+    color: rgba(var(--base-color-white), .4);
+    display: block;
+}
+
+.customForm .formControl ul.parsley-errors-list {
+    display: block;
+    font-size: 12px;
+    padding-top: 5px;
+    color: var(--form-input-err-color) !important;
+}
+
+.formInputCollects .formControl ul.parsley-errors-list {
+    font-size: 14px !important;
+    color: var(--form-input-err-color) !important;
+}
+
+.customForm .invalid-feedback {
+    font-size: 12px !important;
+    padding-top: 5px !important;
+    letter-spacing: normal !important;
+    color: var(--form-input-err-color) !important;
+}
+
+.customForm .invalid_feedback_Div {
+    font-size: 12px !important;
+    padding-top: 5px !important;
+    color: var(--form-input-err-color) !important;
+}
+
+.customForm .formSubmit {
+    margin-top: 15px !important;
+    margin-bottom: 20px !important;
+}
+
+.customForm .formSubmit .btn i {
+    font-weight: normal !important;
+    margin-right: 3px !important;
+    margin-left: 3px !important;
+    font-size: 15px;
+}
+
+.customForm .formSubmit .btn {
+    font-size: 16px;
+}
+
+.form-control-color {
+    width: 100%;
+}
+
+html[dir="rtl"] .customForm .formControl i {
+    right: 12px;
+    left: unset;
+}
+
+html[dir="rtl"] .customForm .formControl .withIcon {
+    padding-right: 35px !important;
+    padding-left: 15px !important;
+}
+
+.customForm .formControl input,
+.customForm .formControl input[type="password"] {
+    color: rgba(var(--base-color-white), .8) !important;
+    font-size: 14px !important;
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
+}
+
+.customForm .formControl select {
+    color: rgba(var(--base-color-white), .8) !important;
+    font-size: 14px !important;
+    padding-top: 9px !important;
+    padding-bottom: 8px !important;
+    border-radius: 4px;
+}
+
+.customForm .formControl textarea {
+    color: rgba(var(--base-color-white), .8) !important;
+    font-size: 14px;
+    padding-top: 9px !important;
+    padding-bottom: 8px !important;
+    min-height: 100px;
+}
+
+html[dir="rtl"] .was-validated .form-control:valid {
+    /*padding-right: 55px !important;*/
+}
+
+html[dir="rtl"] .was-validated .form-control:invalid,
+html[dir="rtl"] .was-validated .form-control:valid {
+    background-position: left calc(.375em + .1875rem) center;
+    padding-left: calc(1.5em + .75rem);
+    padding-right: 35px;
+    /*background: none!important;*/
+}
+
+.customForm .formControl input[type="color"] {
+    height: 40px !important;
+}
+
+.customForm .formControl input[type="color"]:valid {
+    padding-top: 9px !important;
+    padding-bottom: 8px !important;
+    padding-right: 12px !important;
+}
+
+.customForm .formControl .lang_en {
+    font-size: 16px !important;
+    /*font-family: Arial, Helvetica, sans-serif !important;*/
+}

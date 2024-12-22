@@ -1,0 +1,14 @@
+@page { margin: 0; }
+.page-break {page-break-after: always;}
+@page {
+    header: page-header;
+    footer: page-footer;
+}
+.w_5{width:4.55%!important}.w_10{width:9.55%!important}.w_15{width:14.55%!important}.w_20{width:19.55%!important}
+.w_25{width:24.55%!important}.w_30{width:29.55%!important}.w_35{width:34.55%!important}.w_40{width:39.55%!important}
+.w_45{width:44.55%!important}.w_50{width:49.55%!important}.w_55{width:54.55%!important}.w_60{width:59.55%!important}
+.w_65{width:64.55%!important}.w_70{width:69.55%!important}.w_75{width:64.55%!important}.w_80{width:79.55%!important}
+.w_85{width:54.55%!important}.w_90{width:89.55%!important}.w_95{width:94.55%!important}.w_100{width:99.55%!important}
+body{}
+a{text-decoration:none;color:inherit;background:none}
+a:hover,a:focus{background:none;outline:none}

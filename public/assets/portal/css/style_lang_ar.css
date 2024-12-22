@@ -1,0 +1,23 @@
+body{font-family: 'Tajawal', sans-serif!important; font-display: swap!important; letter-spacing: 0!important; line-height: normal!important;}
+.page-wrapper .page-body-wrapper .page-title .row h3 {letter-spacing: normal;}
+.page-wrapper .page-body-wrapper .page-title .breadcrumb {
+    font-family: 'Tajawal', sans-serif !important;
+    font-display: swap !important;
+}
+
+
+@media only screen and (max-width: 575.98px) {
+
+}
+
+
+
+/*.btn i{*/
+/*    position: relative;*/
+/*    vertical-align: middle!important;*/
+/*}*/
+
+/*i, .show-btn, .btn ,.fixMobile{*/
+/*    position: relative;*/
+/*    vertical-align: middle!important;*/
+/*}*/

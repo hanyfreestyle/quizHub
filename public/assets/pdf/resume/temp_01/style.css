@@ -1,0 +1,38 @@
+body {direction: ltr}
+body table{width: 100%}
+.side_container {width: 85%;margin: auto;}
+.row_left{float:left;width:30%;height:100%;text-align:center;background-color:var(--left-bg)}
+.row_right{float:left;width:70%;height:100%;text-align:center;background-color:var(--right-bg)}
+
+.profile_photo{padding-top:50px;width:100%}
+.profile_photo_div{width:150px;height:150px;border-radius:50%;overflow:hidden;margin:auto}
+.profile_photo_div img{width:100%;height:100%;object-fit:cover}
+
+
+.profile_name{margin-top:10px;color:var(--left-text)}
+.profile_job_title{margin-top:3px;color:var(--left-text);opacity:var(--left-opacity)}
+.profile_about{margin-top:20px;color:var(--left-text);opacity:var(--left-opacity)}
+
+
+.contactInfo table {margin-bottom: 10px;}
+.contactInfo .icon{width:30px;text-align:center;color:var(--left-text);opacity:var(--left-opacity)}
+.contactInfo .icon i{font-size:16px}
+.contactInfo .title{margin-bottom:1px;color:var(--left-text);opacity:var(--left-opacity)}
+.contactInfo .des{width:160px!important;color:var(--left-text);opacity:var(--left-opacity);word-wrap:break-word;overflow-wrap:break-word;white-space:normal}
+
+.headlineSide{margin-top:10px;margin-bottom:10px;color:var(--left-headlineSide)}
+.headlineSide table .icon{width:20px;text-align:center}
+
+
+.references {
+
+    text-align: left;
+    margin-bottom: 15px;
+    color: var(--left-text);
+}
+
+.references div {
+    display: block;
+    opacity:var(--left-opacity)
+}
+

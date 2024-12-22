@@ -1,0 +1,144 @@
+:root {
+    --body-bg: #f5f5f5;
+    --boxed-bg: #ffffff;
+    --body-text: 0, 0, 0;
+    --icon-card-color: 0, 0, 0;
+    --container-width: 580px;
+    --profile-size: 140px;
+
+    --base-color-white: 0,0,0;
+    --base-color-black: 255,255,255;
+    /*--icon-card-bg:  rgba(46, 46, 46, 0.9);*/
+    --icon-card-bg:  rgba(255,255,255, 0.9);
+}
+
+body.darkMode {
+    --body-bg: #1a1a1a;
+    --boxed-bg: #2d2d2d;
+    --body-text: 255, 255, 255;
+    --icon-card-color: 255, 255, 255;
+
+    --base-color-white: 255,255,255;
+    --base-color-black: 0,0,0;
+    --icon-card-bg: #2e2e2e;
+
+}
+
+a {text-decoration: none; color: var(--them-link-color)}
+a:hover,a:active,a:focus {text-decoration: none; color: var(--them-link-color)}
+
+.iconBox{opacity: 1!important;}
+.iconBox:hover{opacity: 1!important;}
+.iconBox.social_facebook {color:#fff!important;background-color:#1877F2!important;}
+.iconBox.social_twitter {color:#fff!important;background-color:#1DA1F2!important}
+.iconBox.social_linkedin {color:#fff!important;background-color:#0077B5!important}
+.iconBox.social_instagram {color:#fff!important;background-color:#E4405F!important}
+.iconBox.social_youtube {color:#fff!important;background-color:red!important}
+.iconBox.social_pinterest {color:#fff!important;background-color:#E60023!important}
+.iconBox.social_snapchat {color:#000!important;background-color:#FFFC00!important}
+.iconBox.social_tiktok {color:#fff!important;background-color:#010101!important}
+.iconBox.social_reddit {color:#fff!important;background-color:#FF4500!important}
+.iconBox.social_vimeo {color:#fff!important;background-color:#1AB7EA!important}
+.iconBox.social_quora {color:#fff!important;background-color:#B92B27!important}
+.iconBox.social_tumblr {color:#fff!important;background-color:#36465D!important}
+.iconBox.social_clubhouse {color:#000!important;background-color:#F2E7DA!important}
+.iconBox.social_twitch {color:#fff!important;background-color:#9146FF!important}
+.iconBox.social_medium {color:#fff!important;background-color:#12100E!important}
+.iconBox.social_dribbble {color:#fff!important;background-color:#EA4C89!important}
+.iconBox.social_behance {color:#fff!important;background-color:#1769FF!important}
+.iconBox.social_flickr {color:#fff!important;background-color:#0063DC!important}
+
+
+
+.iconBox.messaging_whatsapp {color:#fff!important;background-color:#25D366!important}
+.iconBox.messaging_telegram {color:#fff!important;background-color:#08c!important}
+.iconBox.messaging_messenger {color:#fff!important;background-color:#006AFF!important}
+.iconBox.messaging_teams {color:#fff!important;background-color:#464EB8!important;}
+.iconBox.messaging_viber {color:#fff!important;background-color:#665CAC!important}
+.iconBox.messaging_wechat {color:#fff!important;background-color:#7BB32E!important}
+.iconBox.messaging_line {color:#fff!important;background-color:#00C300!important}
+.iconBox.messaging_kik {color:#fff!important;background-color:#82BC23!important}
+.iconBox.messaging_signal {color:#fff!important;background-color:#3A76F0!important}
+.iconBox.messaging_slack {color:#fff!important;background-color:#4A154B!important}
+.iconBox.messaging_discord {color:#fff!important;background-color:#5865F2!important}
+.iconBox.messaging_skype {color:#fff!important;background-color:#00AFF0!important}
+.iconBox.messaging_google_chat {color:#fff!important;background-color:#34A853!important}
+.iconBox.messaging_snapchat {color:#000!important;background-color:#FFFC00!important}
+
+
+.iconBox.field_web {color:#fff!important;background-color:#6c757d!important}
+.iconBox.field_email {color:#fff!important;background-color:#007bff!important}
+.iconBox.field_phone {color:#fff!important;background-color:#28a745!important}
+.iconBox.field_company_url {color:#fff!important;background-color:#17a2b8!important}
+.iconBox.field_link {color:#fff!important;background-color:#ffc107!important}
+.iconBox.field_address {color:#fff!important;background-color:#dc3545!important}
+.iconBox.field_google_map {color:#fff!important;background-color:#fd7e14!important}
+.iconBox.field_blog_url {color:#fff!important;background-color:#6f42c1!important}
+.iconBox.field_portfolio_url {color:#fff!important;background-color:#343a40!important}
+.iconBox.field_country {color:#fff!important;background-color:#20c997!important}
+.iconBox.field_city {color:#fff!important;background-color:#6610f2!important}
+.iconBox.field_postal_code {color:#fff!important;background-color:#e83e8c!important}
+
+.iconBox.business_shopify {color:#fff!important;background-color:#96bf48!important}
+.iconBox.business_woocommerce {color:#fff!important;background-color:#96588a!important}
+.iconBox.business_amazon_store {color:#fff!important;background-color:#f90!important}
+.iconBox.business_zendesk {color:#fff!important;background-color:#03363d!important}
+.iconBox.business_freshdesk {color:#fff!important;background-color:#0aaf5b!important}
+.iconBox.business_livechat {color:#fff!important;background-color:#0d84ff!important}
+.iconBox.business_github {color:#fff!important;background-color:#333!important}
+.iconBox.business_gitlab {color:#fff!important;background-color:#e24329!important}
+.iconBox.business_bitbucket {color:#fff!important;background-color:#205081!important}
+.iconBox.business_calendly {color:#fff!important;background-color:#006bff!important}
+.iconBox.business_zoom {color:#fff!important;background-color:#2d8cff!important}
+.iconBox.business_google_meet {color:#fff!important;background-color:#34a853!important}
+.iconBox.business_microsoft_teams_meeting {color:#fff!important;background-color:#464eb8!important}
+.iconBox.business_trello {color:#fff!important;background-color:#0079bf!important}
+.iconBox.business_asana {color:#fff!important;background-color:#e05a47!important}
+.iconBox.business_google_drive {color:#fff!important;background-color:#4285f4!important}
+.iconBox.business_dropbox {color:#fff!important;background-color:#007ee5!important}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--body-bg);
+    color: rgba(var(--body-text), 1);
+    font-family: 'Poppins', Helvetica, sans-serif;
+}
+[dir="rtl"] body {
+    font-family: 'Tajawal', Helvetica, sans-serif;
+}
+
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.containerBoxed {
+    width: 100%;
+    max-width: var(--container-width);
+    background: var(--boxed-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 100px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0;
+    }
+
+    .containerBoxed {
+        max-width: 100%;
+        border-radius: 0;
+        background: none !important;
+        box-shadow: none;
+    }
+}

@@ -1,0 +1,22 @@
+body { direction: rtl!important;}
+.row_left {float: right;}
+.row_right {float: right;}
+
+.profile_name{font-size:20px;font-family:'Tajawal',Helvetica,sans-serif}
+.profile_job_title{font-size:14px;font-family:'Tajawal',Helvetica,sans-serif}
+.profile_about{font-size:12px;line-height:15px;text-align:right;font-family:'Tajawal',Helvetica,sans-serif}
+
+.contactInfo .title{font-family:'Tajawal',Helvetica,sans-serif;font-size:12px;text-align:right}
+.contactInfo .des{font-family:'PaytoneOne',Helvetica,sans-serif;font-size:12px;text-align:right}
+.contactInfo .fontNumber{font-family:'CabinRegular',Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:1px}
+
+.headlineSide table{text-align:right}
+.headlineSide table .text .title{font-family:'TajawalBold',Helvetica,sans-serif;font-size:16px}
+.headlineSide table .icon i{font-size:18px;line-height:20px}
+
+.references{text-align:right}
+.references .refname{font-family:'Tajawal',Helvetica,sans-serif;font-size:16px;opacity:1}
+.references .refcompany{font-family:'Tajawal',Helvetica,sans-serif;font-size:12px}
+.references .refjob{font-family:'Tajawal',Helvetica,sans-serif;font-size:12px;margin-bottom:7px}
+.references .refphone{font-family:'CabinRegular',Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;margin-bottom:4px}
+.references .refemail{font-family:'PaytoneOne',Helvetica,sans-serif;font-size:12px;letter-spacing:1px}

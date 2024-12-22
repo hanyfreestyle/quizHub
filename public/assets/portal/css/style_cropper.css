@@ -1,0 +1,124 @@
+.cropperHtmlCard h4 {
+    font-size: 18px;
+}
+
+.cropperHtmlCard .card-header p {
+    font-size: 14px;
+    letter-spacing: normal !important;
+}
+
+.cropperHtmlCard .img-container {
+    max-width: 100%;
+    min-height: 200px;
+    max-height: 400px;
+    margin: auto;
+    margin-bottom: 10px;
+    border: 1px dashed rgba(255, 255, 255, .2);
+}
+
+.cropperHtmlCard .error {
+    color: var(--form-input-err-color) !important;
+    margin-top: 10px;
+}
+
+.cropperHtmlCard .error p {
+    margin-bottom: 2px;
+    color: var(--form-input-err-color) !important;
+}
+
+
+
+.current_image h4 {
+    font-size: 18px;
+}
+
+.current_image .img-container {
+    max-width: 100%;
+    min-height: 200px;
+    max-height: 400px;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px dashed rgba(255, 255, 255, .2);
+}
+
+.current_image .img-container img {
+    display: block;
+    max-width: 95%;
+    max-height: 300px;
+    margin: auto;
+}
+
+@media only screen and (max-width: 575.98px) {
+    .current_image .img-container img {
+        display: block;
+        max-width: 95%;
+        max-height: 180px;
+        margin: auto;
+    }
+}
+
+
+
+
+
+
+.cropperHtmlCard .file-upload-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.cropperHtmlCard .file_container {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(43,94,94,.1);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    border: 2px dashed rgba(var(--base-color-white),.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cropperHtmlCard .file_container:hover {
+    background-color:rgba(43,94,94,.3);
+}
+
+.cropperHtmlCard .file_container input[type="file"] {
+    display: none;
+}
+
+.cropperHtmlCard .file-upload-text {
+    font-size: 15px;
+
+}
+
+.cropperHtmlCard .file_container .icon {
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+
+.button_container {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.cancel-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+.cancel-button:hover {
+    background-color: #c0392b;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,93 @@
+.modalCardInput {
+    text-align: right;
+}
+
+.modalCardInput .modal-title {
+    border-radius: 3px;
+    width: 90%;
+    padding: 2px;
+    text-align: right;
+
+}
+
+.modalCardInput .input_color_box {
+    opacity: 1 !important;
+}
+
+.modalCardInput .modal-title i {
+    font-size: 16px !important;
+
+}
+
+.modalCardInput .modal-title h4 {
+    font-size: 15px !important;
+    opacity: 100%;
+}
+
+.suggestions_label {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.suggestions_label .label {
+    padding: 8px 13px;
+    background-color: var(--theme-default);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+
+.formInputCollects .formControl input {
+    width: calc(100% - 50px);
+}
+
+html[dir="rtl"] .formInputCollects.customForm  i {
+    left: 12px;
+    top: 15px;
+    right: unset;
+
+}
+
+.formInputCollects .input_container {
+    position: relative;
+}
+
+
+
+
+.formInputCollects.customForm .formControl i {
+    color: var(--form-input-err-color) !important;
+    position: absolute;
+    font-size: 25px!important;
+    top: 7px!important;
+    left: 12px;
+    cursor: pointer;
+}
+
+.formInputCollects .formControl .form-label {
+    font-size: 16px !important;
+}
+
+.formInputCollects .FormBut {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 5px;
+    margin-bottom: 20px;
+
+
+}
+
+
+
+.inpuntdbInfo{
+    width: 100%;
+    display: block;
+    text-align: left!important;
+    direction: ltr!important;
+    border: 1px solid darkviolet;
+    margin-bottom: 20px;
+}
+

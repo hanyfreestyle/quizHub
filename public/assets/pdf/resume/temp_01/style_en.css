@@ -1,0 +1,18 @@
+body{text-align: left; direction: ltr}
+
+.profile_name{font-family:'Exo2Bold',Helvetica,sans-serif;font-size:20px;letter-spacing:3px;text-transform:uppercase}
+.profile_job_title{font-family:'NunitoSans_7ptBold',Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:1px}
+.profile_about{font-family:'PaytoneOne',Helvetica,sans-serif;font-size:12px;line-height:15px;letter-spacing:.5px;text-align:left}
+
+.contactInfo .title{font-family:'NunitoSans_7ptBold',Helvetica,sans-serif;font-size:12px;letter-spacing:.5px;font-weight:700}
+.contactInfo .des{font-family:'PaytoneOne',Helvetica,sans-serif;font-size:12px}
+.contactInfo .fontNumber{font-family:'CabinRegular',Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:1px}
+
+.headlineSide table .text .title{font-family:'Exo2Bold',Helvetica,sans-serif;font-size:17px;letter-spacing:1px;text-transform:uppercase}
+.headlineSide table .icon i{font-size:14px;line-height:20px}
+
+.references .refname{font-family:'CabinBold',Helvetica,sans-serif;font-size:19px;letter-spacing:1px;opacity:1}
+.references .refcompany{font-family:'CabinRegular',Helvetica,sans-serif;font-size:14px;letter-spacing:1px}
+.references .refjob{font-family:'CabinRegular',Helvetica,sans-serif;font-size:14px;letter-spacing:1px;margin-bottom:7px}
+.references .refphone{font-family:'CabinRegular',Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;margin-bottom:4px}
+.references .refemail{font-family:'PaytoneOne',Helvetica,sans-serif;font-size:12px;letter-spacing:1px}

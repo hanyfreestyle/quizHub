@@ -1,0 +1,331 @@
+{
+    "schools": [
+        {
+            "name": "مدرسة الصحوة",
+            "email": "info@alsahwa.edu.om"
+        },
+        {
+            "name": "مدرسة الإنجاز الخاصة",
+            "email": [
+                "hr@alinjaz.edu.om",
+                "alinjaz@alinjaz.edu.om"
+            ]
+        },
+        {
+            "name": "مدرسة السلطان قابوس",
+            "email": [
+                "info@msqps.edu.om",
+                "schooolhr@gmail.com",
+                "info@msqps.com"
+            ]
+        },
+        {
+            "name": "مدرسة الإبداع العالمية",
+            "email": "info@ibdaa.edu.om"
+        },
+        {
+            "name": "مدرسة الهدى الخاصة",
+            "email": "info@alhudasmart.org"
+        },
+        {
+            "name": "مدرسة العاصمة الخاصة",
+            "email": "cpsoman.2018@gmail.com"
+        },
+        {
+            "name": "مدرسة الصلت بن مالك الخاصة",
+            "email": "enquiry@alsultschool.edu.om"
+        },
+        {
+            "name": "مدرسة القرم الخاصة",
+            "email": "qurumps@qps.edu.om"
+        },
+        {
+            "name": "مدرسة الأوائل الخاصة",
+            "email": "alawael2016@yahoo.com"
+        },
+        {
+            "name": "مدرسة النهضة الحديثة الخاصة",
+            "email": "nahada.new@gmail.com"
+        },
+        {
+            "name": "مدرسة عزان بن قيس الدولية",
+            "email": "careers@abq.edu.om"
+        },
+        {
+            "name": "مدرسة الشويفات الدولية",
+            "email": "iscmuscat@iscmuscat.sabis.net"
+        },
+        {
+            "name": "المدرسة الأمريكية البريطانية",
+            "email": "info@taism.com"
+        },
+        {
+            "name": "المدرسة العمانية العالمية",
+            "email": "hr@abaoman.org"
+        },
+        {
+            "name": "المدرسة العصرية العالمية",
+            "email": "hr@miso.om"
+        },
+        {
+            "name": "مدرسة عزان بن قيس العالمية",
+            "email": [
+                "info@abqazzan.edu.om",
+                "careers@abq.edu.om"
+            ]
+        },
+        {
+            "name": "مدرسة الرواد العالمية",
+            "email": "aiscvs@ais.edu.om"
+        },
+        {
+            "name": "مدرسة صلالة العالمية",
+            "email": "admin2@sisoman.com"
+        },
+        {
+            "name": "مدرسة السيب الدولية",
+            "email": "info@abqseeb.edu.om"
+        },
+        {
+            "name": "المدرسة الدولية الأمريكية",
+            "email": "admissions@taism.com"
+        },
+        {
+            "name": "مدرسة صحار العالمية",
+            "email": [
+                "careers@abq.edu.om",
+                "info@abqsohar.edu.om"
+            ]
+        },
+        {
+            "name": "مدارس الصفوة",
+            "email": "frontoffice@assafwah.net"
+        },
+        {
+            "name": "المدرسة الهندية نزوي",
+            "email": "careers@isnizwa.org"
+        },
+        {
+            "name": "المدرسة الهندية إبراء",
+            "email": "principal@indianschoolibra.com"
+        },
+        {
+            "name": "Al Azhaar Private School",
+            "email": "alazhar@omantel.net.om"
+        },
+        {
+            "name": "المدرسة الفلبينية",
+            "email": "philippineschool@pso.edu.om"
+        },
+        {
+            "name": "National Private Schools",
+            "email": "admissions@npschool.net"
+        },
+        {
+            "name": "مدرسة درة الخليج الخاصة",
+            "email": "info@dak.edu.om"
+        },
+        {
+            "name": "مدرسة التجهيز العلمي الخاصة",
+            "email": "altajheezschool@gmail.com"
+        },
+        {
+            "name": "مدرسة الإبداع العالمية",
+            "email": [
+                "Info@Ibdaa.edu.om",
+                "Students.Affairs@ibdaa.edu.om"
+            ]
+        },
+        {
+            "name": "مدرسة الموالح الخاصة",
+            "email": "info@mps.edu.om"
+        },
+        {
+            "name": "مدرسة جيفر بن الجلندى الخاصة",
+            "email": "jaifarprivateschool@gmail.com"
+        },
+        {
+            "name": "Al Fawz International School",
+            "email": "alfawzoman@gmail.com"
+        },
+        {
+            "name": "مدرسة بوابة المعرفة العالمية",
+            "email": "info@kgis-edu.com"
+        },
+        {
+            "name": "مدرسة تبارك الخاصة",
+            "email": "careers@tabarak.edu.om"
+        },
+        {
+            "name": "مدرسة أحمد بن ماجد الخاصة",
+            "email": "hr@abm.edu.om"
+        },
+        {
+            "name": "مدرسة السعد العالمية",
+            "email": [
+                "registrar@agsmuscat.com",
+                "info@agsmuscat.com"
+            ]
+        },
+        {
+            "name": "Durrat Muscat Private School",
+            "email": "duratmascat2018@gmail.com"
+        },
+        {
+            "name": "Pakistan School",
+            "email": [
+                "cc.senior@pakistanschool.edu.om",
+                "cc.junior@pakistanschool.edu.om"
+            ]
+        },
+        {
+            "name": "Finland Oman School",
+            "email": "admissions@fos.edu.om"
+        },
+        {
+            "name": "Indian School Al Wadi Al Kabir",
+            "email": "office@iswkoman.com"
+        },
+        {
+            "name": "مدرسة النبراس لذوي الاحتياجات الخاصة",
+            "email": "info@nibrasschool.com"
+        },
+        {
+            "name": "Modern Generation Private School",
+            "email": [
+                "contact@moderngps.com",
+                "moderngps12@gmail.com"
+            ]
+        },
+        {
+            "name": "مدرسة العاصمة الخاصة",
+            "email": "cpsoman.2018@gmail.com"
+        },
+        {
+            "name": "مدرسة الحيل الخاصة",
+            "email": "info@alhailprivateschool.com"
+        },
+        {
+            "name": "مدرسة جعلان الخاصة",
+            "email": "info@jps.cm"
+        },
+        {
+            "name": "مدرسة السلطان",
+            "email": "nfo@sultansschool.edu.om"
+        },
+        {
+            "name": "مدرسة السلطان قابوس",
+            "email": [
+                "info@sultansschool.org",
+                "info@msqps.com"
+            ],
+            "phone": "+96824536777",
+            "fax": "+96824536997",
+            "location": "مدينة السلطان قابوس"
+        },
+        {
+            "name": "مدرسة الإبداع العالمية",
+            "email": [
+                "Alibdaa1@Omantel.net.om"
+            ],
+            "phone": "+96824505135",
+            "fax": "+96824505134",
+            "location": "مسقط, بوشر, مدينة السلطان قابوس"
+        },
+        {
+            "name": "المدارس المتحدة الخاصة - الوطنية الخاصة فرع الخوير",
+            "email": [
+                "info@npschool.net",
+                "npschool@omantel.net.om"
+            ],
+            "phone": [
+                "+96824489721",
+                "+96824489304",
+                "+96824489536"
+            ],
+            "fax": "+96824481741",
+            "location": "الخوير"
+        },
+        {
+            "name": "المدارس المتحدة الخاصة - فرع المعبيلة الجنوبية",
+            "email": [
+                "nps.mabelah@hotmail.com"
+            ],
+            "phone": [
+                "+96824463126",
+                "+96899296809"
+            ],
+            "location": "السيب, المعبيلة الجنوبية"
+        },
+        {
+            "name": "مدرسة الباطنة العالمية",
+            "email": "Info@abisoman.com"
+        },
+        {
+            "name": "مدرسة السيب العالمية",
+            "email": "recruitment@asseebis.com"
+        },
+        {
+            "name": "مدرسة عزان بن قيس",
+            "email": [
+                "information@azzanbinqais.com",
+                "hr@azzanbinqais.com"
+            ],
+            "phone": "+96824210200",
+            "fax": "+96824503085",
+            "location": "Bareeq Al Shatti Mall, Muscat"
+        },
+        {
+            "name": "مدرسة الهدى الإلكترونية",
+            "email": "info@alhudasmart.org",
+            "phone": [
+                "+96824797116",
+                "+96894043288"
+            ],
+            "location": "مسقط, دارسيت"
+        },
+        {
+            "name": "مدرسة تبارك الخاصة",
+            "email": "school2011muscat@gmail.com",
+            "phone": [
+                "+96824535222",
+                "+96824535811",
+                "+96892643289"
+            ],
+            "location": "السيب, الحيل الجنوبي"
+        },
+        {
+            "name": "مدرسة الشويفات الدولية",
+            "email": "iscmuscat@sabis.net",
+            "phone": "+96824534000",
+            "fax": "+96824547300"
+        },
+        {
+            "name": "مدرسة اليسر العالمية بالقرم",
+            "email": "Career@gis.du.om",
+            "phone": [
+                "+96891717591",
+                "+96891717691"
+            ],
+            "location": "السيب, الخوض"
+        },
+        {
+            "name": "مدرسة غرس العالمية",
+            "email": "info@myschool.edu.om",
+            "phone": [
+                "+96824555171",
+                "+96895322595"
+            ],
+            "location": "الحيل الجنوبية, مسقط"
+        },
+        {
+            "name": "مدارس التكوين",
+            "email": "altakween.pvtschl@gmail.com",
+            "phone": [
+                "+96826886387",
+                "+96898883775"
+            ],
+            "location": "بركاء, منطقة الباسط"
+        }
+    ]
+}

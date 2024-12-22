@@ -1,0 +1,123 @@
+.authPage .selLang {
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.authPage .selLang img {
+    max-width: 30px;
+}
+
+.authPage .img_bg {
+    filter: grayscale(100%);
+}
+
+.authPage .login-card .logoAuth {
+    display: block;
+    margin-bottom: 15px;
+    text-align: center !important;
+}
+
+.authPage .logoAuth img {
+    max-width: 300px;
+    display: block;
+    margin: auto;
+
+}
+
+
+html[dir="rtl"] .remember-forgot a {
+    letter-spacing: normal !important;
+}
+
+.authPage .customForm h4 {
+    letter-spacing: normal !important;
+    font-weight: normal !important;
+}
+
+html[dir="rtl"] .authPage .customForm h6 {
+    letter-spacing: normal !important;
+    font-weight: normal !important;
+
+}
+
+
+body.dark-only .login-card .login-main .theme_form .text-muted {
+    color: rgba(var(--base-color-white), .4) !important;
+}
+
+
+.authPage .customForm h6::before {
+    background-color: rgba(var(--base-color-white), .4) !important;
+
+}
+
+.login-card.login-bg{
+    background-color: #121313!important;
+}
+
+
+body.dark-only .login-card .login-main {
+    box-shadow :  none!important;
+    background-color: #171818 !important;
+}
+html[dir="rtl"] .h4_p, html[dir="rtl"] .footer_form_text, html[dir="rtl"] .footer_form_text a {
+    /*letter-spacing: normal !important;*/
+    /*font-weight: normal !important;*/
+}
+
+
+.submit_form{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 575.98px) {
+    .authPage .logoAuth img {
+        max-width: 200px;
+    }
+
+    .authPage .login-card {
+
+
+    }
+
+    .login-card {
+        /*padding-bottom: 20px;*/
+        /*padding-top: 0px;*/
+        /*width: 100% !important;*/
+    }
+
+    .btn-showcase i{
+        font-size: 12px!important;
+        font-weight: normal!important;
+    }
+
+    .h4_p{
+        margin-bottom: 15px!important;
+    }
+
+    html[dir="rtl"] .h4_p {
+        /*font-size: 12px!important;*/
+
+
+
+    }
+
+}
+
+
+
+
+.PrivacyList{padding:5px 20px}
+.PrivacyList .g_des{padding:10px 5px;font-size:16px}
+@media only screen and (min-width: 991px) {
+    .PrivacyList .g_des{padding:10px 150px;font-size:17px}
+}
+.PrivacyList h2{font-size:18px;color: var(--red)!important;margin:0!important;margin-top:10px!important;margin-bottom:10px!important;line-height:0!important}
+.PrivacyList h3{font-size:16px;margin-top:15px!important;font-weight:700}
+.PrivacyList span{color:#08c;font-weight:700}
+.PrivacyList p{font-size:15px;line-height:30px;margin-bottom:20px;margin-top:0}
+.PrivacyList ul{margin:0;padding-right:20px!important;padding-left:15px!important;margin-bottom:20px!important}
+.PrivacyList ul li{font-size:15px;margin-bottom:5px;line-height:30px!important}
+
