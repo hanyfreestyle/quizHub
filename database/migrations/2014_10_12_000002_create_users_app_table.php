@@ -11,11 +11,11 @@ return new class extends Migration {
 
     public function up(): void {
         self::tableUsers('up');
-        self::tableUsersCard('up');
+//        self::tableUsersCard('up');
     }
 
     public function down(): void {
-        self::tableUsersCard('down');
+//        self::tableUsersCard('down');
         self::tableUsers('down');
     }
 

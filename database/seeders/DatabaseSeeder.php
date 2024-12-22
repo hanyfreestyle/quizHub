@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder {
         $this->call(AdminMenuSeeder::class);
 
         UsersAppFileTraits::LoadSeeder();
-        PortalCardFileTraits::LoadSeeder();
+//        PortalCardFileTraits::LoadSeeder();
         AppSettingFileTraits::LoadSeeder();
         DataFileTraits::LoadSeeder();
         $this->call(ModelSeeder::class);
