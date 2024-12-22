@@ -109,10 +109,19 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--primary-color);
+  background-color: rgba(0,0,0,.7);
   border-radius: inherit;
   transition: 0.5s;
 }
+
+.option.correct input::before {
+    background-color: green;
+}
+
+.option.incorrect input::before {
+    background-color: red;
+}
+
 
 .option label {
   font-size: 32px;
@@ -164,7 +173,7 @@ main {
 .option input:checked ~ label::before {
   color: rgb(255, 255, 255);
   color: rgb(255, 255, 255);
-  background-color: var(--secondary-color);
+  background-color: rgba(0,0,0,.7);
 }
 .nextPrev {
   display: flex;

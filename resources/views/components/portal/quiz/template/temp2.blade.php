@@ -10,16 +10,20 @@
         }
     </style>
 @endpush
-@push('TempScript')
-    <script src="{{defQuizAssets('quiz5/result.js') }}"></script>
-    <script src="{{defQuizAssets('quiz5/custom.js') }}"></script>
-@endpush
-
 <main class="overflow-hidden">
     <div class="container">
-        <!-- Steps Start -->
+
+
         <section class="steps">
             <form novalidate onsubmit="return false" class="show-section" id="stepForm">
+                <div class="row">
+                    <div style="width: 100%" id="error"></div>
+                </div>
+
+
+                <button class="apply" type="button" id="sub" style="display: none;">
+                    <i class="fa-solid fa-caret-right"></i> إرسال النتيجة
+                </button>
 
                 @foreach($questions as $index => $question)
                     <fieldset id="step{{ $index + 1 }}">
@@ -30,7 +34,7 @@
                         <div class="options d-flex flex-wrap justify-content-between">
                             @foreach($question->answers as $answer)
                                 <div class="option animate">
-                                    <input type="radio" name="op{{ $index + 1 }}" value="{{ $answer->answer }}"/>
+                                    <input type="radio" name="op{{ $index + 1 }}" value="{{ $answer->answer }}" class="answer-option" data-correct="{{ $answer->is_correct }}"/>
                                     <label>{{ $answer->answer }}</label>
                                 </div>
                             @endforeach
@@ -45,20 +49,13 @@
                             <!-- Counter -->
                             <div class="stepCount"><span>{{ $index + 1 }}</span>/{{ $questions->count() }}</div>
 
-                        @if($index + 1 == $questions->count())
-                            <!-- زر إرسال النتيجة في السؤال الأخير -->
-                                <button class="apply" type="submit" id="sub">
-                                    <i class="fa-solid fa-caret-right"></i> ارسال النتيجة
-                                </button>
-                        @else
-                            <!-- زر الانتقال إلى السؤال التالي -->
-                                <button class="next" type="button" id="step{{ $index + 1 }}btn">
-                                    <i class="fa-solid fa-caret-right"></i>
-                                </button>
-                            @endif
+                            <button class="next" type="button" id="step{{ $index + 1 }}btn">
+                                <i class="fa-solid fa-caret-right"></i>
+                            </button>
                         </div>
                     </fieldset>
                 @endforeach
+
 
 
             </form>
@@ -66,11 +63,13 @@
             <img class="avatar" src="{{defQuizAssets('quiz5/images/avatar.png') }}" alt="Avatar"/>
             <div class="backgroundSlab"></div>
         </section>
+
+
     </div>
 </main>
-<div class="loadingresult">
-    <img src="{{defQuizAssets('quiz5/images/loading.gif') }}" alt="loading"/>
-</div>
+{{--<div class="loadingresult">--}}
+{{--    <img src="{{defQuizAssets('quiz5/images/loading.gif') }}" alt="loading"/>--}}
+{{--</div>--}}
 <div class="result_page">
     <div class="container">
         <div class="result_inner">
@@ -113,4 +112,15 @@
         </div>
     </div>
 </div>
-<div id="error"></div>
+
+
+
+
+@push('TempScript')
+    <script src="{{defQuizAssets('quiz5/result.js') }}"></script>
+    <script src="{{defQuizAssets('quiz5/custom.js') }}"></script>
+    <script>
+
+   </script>
+@endpush
+

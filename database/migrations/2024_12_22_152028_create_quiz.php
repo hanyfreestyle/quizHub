@@ -10,7 +10,6 @@ return new class extends Migration {
         Schema::create('app_quiz_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('question')->nullable();
-//            $table->integer('answer_id')->nullable(); // إذا كنت تحتاج فقط لإجابة واحدة، هذا العمود يمكن أن يشير إلى الإجابة الصحيحة.
             $table->integer('position')->nullable()->default(0);
             $table->timestamps();
         });
