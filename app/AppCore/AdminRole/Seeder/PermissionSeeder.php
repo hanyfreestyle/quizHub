@@ -7,6 +7,7 @@ use App\Http\Traits\Files\DataFileTraits;
 use App\Http\Traits\Files\MainModelFileTraits;
 use App\Http\Traits\Files\PortalCardFileTraits;
 use App\Http\Traits\Files\ProductFileTraits;
+use App\Http\Traits\Files\QuizFileTraits;
 use App\Http\Traits\Files\UsersAppFileTraits;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
@@ -30,7 +31,7 @@ class PermissionSeeder extends Seeder {
         ];
 
         $data = UsersAppFileTraits::LoadPermission($data);
-        $data = PortalCardFileTraits::LoadPermission($data);
+        $data = QuizFileTraits::LoadPermission($data);
         $data = ProductFileTraits::LoadPermission($data);
         $data = MainModelFileTraits::LoadPermission($data);
         $data = DataFileTraits::LoadPermission($data);

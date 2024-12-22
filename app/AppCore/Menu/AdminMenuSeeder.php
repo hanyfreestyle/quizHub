@@ -8,6 +8,7 @@ use App\Http\Traits\Files\AppSettingFileTraits;
 use App\Http\Traits\Files\DataFileTraits;
 use App\Http\Traits\Files\MainModelFileTraits;
 use App\Http\Traits\Files\PortalCardFileTraits;
+use App\Http\Traits\Files\QuizFileTraits;
 use App\Http\Traits\Files\UsersAppFileTraits;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Cache;
@@ -22,7 +23,7 @@ class AdminMenuSeeder extends Seeder {
         DataFileTraits::LoadMenu();
         LangFileController::AdminMenu();
         UsersAppFileTraits::LoadMenu();
-        PortalCardFileTraits::LoadMenu();
+        QuizFileTraits::LoadMenu();
         MainModelFileTraits::LoadMenu();
 
         $updateMenuPosition = AdminMenu::query()->where('parent_id', '!=', null)->get();

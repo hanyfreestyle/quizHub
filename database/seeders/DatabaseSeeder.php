@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder {
 
         UsersAppFileTraits::LoadSeeder();
 //        PortalCardFileTraits::LoadSeeder();
+        PortalCardFileTraits::LoadSeeder();
         AppSettingFileTraits::LoadSeeder();
         DataFileTraits::LoadSeeder();
         $this->call(ModelSeeder::class);

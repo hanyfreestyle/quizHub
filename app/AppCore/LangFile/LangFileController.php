@@ -10,6 +10,7 @@ use App\Http\Traits\Files\DataFileTraits;
 use App\Http\Traits\Files\MainModelFileTraits;
 use App\Http\Traits\Files\PortalCardFileTraits;
 use App\Http\Traits\Files\ProductFileTraits;
+use App\Http\Traits\Files\QuizFileTraits;
 use App\Http\Traits\Files\UsersAppFileTraits;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
@@ -75,6 +76,7 @@ class LangFileController extends AdminMainController {
         $LangMenu = DataFileTraits::LoadLangFiles($LangMenu);
         $LangMenu = ProductFileTraits::LoadLangFiles($LangMenu);
         $LangMenu = MainModelFileTraits::LoadLangFiles($LangMenu);
+        $LangMenu = QuizFileTraits::LoadLangFiles($LangMenu);
 
         return $LangMenu;
     }

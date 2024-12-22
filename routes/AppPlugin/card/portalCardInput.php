@@ -20,19 +20,3 @@ Route::prefix('portal-card')->name('PortalCard.')->controller(PortalCardInputCon
     Route::delete('/suggestion/{id}', 'deleteExistingSuggestions')->name('deleteExistingSuggestions');
     Route::post('/{id}/add-new-suggestions', 'addNewSuggestions')->name('addNewSuggestions');
 });
-
-
-
-
-//Route::get('/portal-card', [PortalCardInputController::class, 'index'])->name('PortalCard.index');
-//Route::get('/portal-card/create', [PortalCardInputController::class, 'create'])->name('PortalCard.create');
-//Route::get('/portal-card/edit/{id}', [PortalCardInputController::class, 'edit'])->name('PortalCard.edit');
-//Route::post('/portal-card/saveUpdate/{id}', [PortalCardInputController::class, 'saveUpdate'])->name('PortalCard.saveUpdate');
-//Route::get('/portal-card/delete/{id}', [PortalCardInputController::class, 'delete'])->name('PortalCard.delete');
-//Route::post('/portal-card/sortInput', [PortalCardInputController::class, 'sortInputSave'])->name('PortalCard.sortInput');
-//Route::post('/portal-card/toggleStatus', [PortalCardInputController::class, 'toggleStatus'])->name('PortalCard.toggleStatus');
-//
-//Route::put('/portal-card/{id}/update-existing-suggestions', [PortalCardInputController::class, 'updateExistingSuggestions'])->name('PortalCard.updateExistingSuggestions');
-//Route::delete('/portal-card/suggestion/{id}', [PortalCardInputController::class, 'deleteExistingSuggestions'])->name('PortalCard.deleteExistingSuggestions');
-//Route::post('/portal-card/{id}/add-new-suggestions', [PortalCardInputController::class, 'addNewSuggestions'])->name('PortalCard.addNewSuggestions');
-

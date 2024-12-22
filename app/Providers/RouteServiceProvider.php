@@ -42,6 +42,8 @@ class RouteServiceProvider extends ServiceProvider {
                         if (File::isFile(base_path('routes/AppPlugin/usersAppAdmin.php'))) {
                             Route::middleware('web')->group(base_path('routes/AppPlugin/usersAppAdmin.php'));
                         }
+                        Route::middleware('web')->group(base_path('routes/AppPlugin/quiz/quizRoutes.php'));
+
                     });
                 });
             });
