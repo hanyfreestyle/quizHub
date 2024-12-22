@@ -5,6 +5,7 @@ namespace App\Http\Controllers\web;
 use App\AppPlugin\PortalCard\Models\PortalCard;
 
 use App\AppPlugin\PortalCard\Traits\TemplateConfigTraits;
+use App\AppPlugin\Quiz\Models\AppQuizQuestion;
 use App\Http\Controllers\WebMainController;
 use Illuminate\Support\Facades\View;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -18,8 +19,15 @@ class PagesViewController extends WebMainController {
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     public function quizView() {
+
+//        $questions = AppQuizQuestion::query()->with('answers')->get();
+
+        $questions = AppQuizQuestion::query()->with(['answers' => function($query) {
+            $query->inRandomOrder();
+        }])->get();
+
         return view('quiz.index')->with([
-//            'pageView' => $pageView,
+            'questions' => $questions,
         ]);
     }
 
