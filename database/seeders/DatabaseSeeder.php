@@ -10,6 +10,7 @@ use App\AppCore\Menu\AdminMenuSeeder;
 use App\Http\Traits\Files\AppSettingFileTraits;
 use App\Http\Traits\Files\DataFileTraits;
 use App\Http\Traits\Files\PortalCardFileTraits;
+use App\Http\Traits\Files\QuizFileTraits;
 use App\Http\Traits\Files\UsersAppFileTraits;
 use Illuminate\Database\Seeder;
 
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder {
 
         UsersAppFileTraits::LoadSeeder();
 //        PortalCardFileTraits::LoadSeeder();
+        QuizFileTraits::LoadSeeder();
         PortalCardFileTraits::LoadSeeder();
         AppSettingFileTraits::LoadSeeder();
         DataFileTraits::LoadSeeder();

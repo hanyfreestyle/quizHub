@@ -82,59 +82,21 @@ class AdminQuizController extends AdminMainController {
         $pageData = $this->pageData;
         $pageData['ViewType'] = "List";
 
-        $currentRoute = Route::currentRouteName();
-        View::share('currentRoute', $currentRoute);
+        $rowData = AppQuizQuestion::query()->with('answers')->get();
 
-        if ($currentRoute == $this->PrefixRoute . '.indexVip') {
-
-            $rowData = PortalCardInput::query()
-                ->where('vip', true)
-                ->orderBy('position_vip')
-                ->get();
-
-            return view('AppPlugin.ConfigPortalCard.index_vip')->with([
-                'rowData' => $rowData,
-                'pageData' => $pageData,
-
-            ]);
-
-        } elseif ($currentRoute == $this->PrefixRoute . '.index') {
-            $isActive = 1;
-            $reloadRoute = $this->PrefixRoute . '.index';
-            $orderBy = 'position';
-
-        } elseif ($currentRoute == $this->PrefixRoute . '.indexDisabled') {
-            $isActive = 0;
-            $reloadRoute = $this->PrefixRoute . '.indexDisabled';
-            $orderBy = 'position_vip';
-        }
-
-        $rowData = PortalCardInput::query()
-            ->where('is_active', $isActive)
-            ->orderBy('cat_id') // ترتيب المجموعات حسب cat_id
-            ->orderBy($orderBy) // ترتيب العناصر داخل كل مجموعة
-            ->get()
-            ->groupBy('cat_id'); // تجميع العناصر حسب cat_id
-
-
-        return view('AppPlugin.ConfigPortalCard.index')->with([
+        return view('AppPlugin.Quiz.index')->with([
             'rowData' => $rowData,
             'pageData' => $pageData,
-            'reloadRoute' => $reloadRoute,
-
         ]);
+
     }
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     public function create() {
-
-
         $pageData = $this->pageData;
         $pageData['ViewType'] = "Add";
         $rowData = new AppQuizQuestion();
-
-//        dd($rowData);
         $title = __('admin/portalCard.form_add');
         return view('AppPlugin.Quiz.form')->with([
             'rowData' => $rowData,
@@ -173,7 +135,7 @@ class AdminQuizController extends AdminMainController {
             $answer->save();
         }
 
-        return redirect()->route($this->PrefixRoute.'.create')->with('success', 'تم إضافة السؤال والإجابات بنجاح');
+        return redirect()->route($this->PrefixRoute . '.create')->with('success', 'تم إضافة السؤال والإجابات بنجاح');
     }
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -181,11 +143,11 @@ class AdminQuizController extends AdminMainController {
     public function edit($id) {
         $pageData = $this->pageData;
         $pageData['ViewType'] = "Edit";
-        $rowData = PortalCardInput::query()->where('id', $id)->with('suggestion_list')->firstOrFail();
+        $question = AppQuizQuestion::query()->where('id', $id)->with('answers')->firstOrFail();
 
-        $title = '<i class="' . $rowData->icon_i . '" ></i> ' . $rowData->input_id;
-        return view('AppPlugin.ConfigPortalCard.form')->with([
-            'rowData' => $rowData,
+        $title = '';
+        return view('AppPlugin.Quiz.form_edit')->with([
+            'question' => $question,
             'pageData' => $pageData,
             'title' => $title
         ]);
@@ -193,85 +155,46 @@ class AdminQuizController extends AdminMainController {
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    public function saveUpdate(PortalCardInputRequest $request, $id) {
-        if (intval($id) == 0) {
-            $saveData = new PortalCardInput();
-        } else {
-            $saveData = PortalCardInput::query()->where('id', $id)->firstOrFail();
-        }
-        try {
-            DB::transaction(function () use ($request, $saveData) {
-                $saveData->cat_id = $request->input('cat_id');
-                $saveData->vip = $request->input('vip');
-                $saveData->input_id = $request->input('input_id');
-                $saveData->name_key = $request->input('name_key');
-                $saveData->icon_i = $request->input('icon_i');
-                $saveData->url = $request->input('url');
-                $saveData->url_user = $request->input('url_user');
-
-                $saveData->regex = $request->input('regex');
-                $saveData->err_ar = $request->input('err_ar');
-                $saveData->err_en = $request->input('err_en');
-
-                $saveData->type = $request->input('type');
-                $saveData->input_dir = $request->input('input_dir');
-                $saveData->save();
-
-                foreach (config('app.portal_lang') as $key => $lang) {
-                    $saveTranslation = PortalCardInputTranslation::where('input_id', $saveData->id)->where('locale', $key)->firstOrNew();
-                    $saveTranslation->locale = $key;
-                    $saveTranslation->input_id = $saveData->id;
-                    $saveTranslation->name = $request->input($key . '.name');
-                    $saveTranslation->save();
-                }
-            });
-        } catch (\Exception $exception) {
-            return back()->with('data_not_save', "");
-        }
-        self::ClearCash();
-        return self::redirectWhere($request, $id, $this->PrefixRoute . '.index');
-    }
-
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    public function addNewSuggestions(Request $request, $id) {
-        $request->validate([
-            'suggestions' => 'required|array',
-            'suggestions.*.ar' => 'required|string|max:255',
-            'suggestions.*.en' => 'required|string|max:255',
+    public function update(Request $request, $questionId) {
+        // التحقق من صحة البيانات
+        $validated = $request->validate([
+            'question' => 'required|string',
+            'answers' => 'required|array|min:4',
+            'answers.*' => 'string',
+            'correct_answer' => 'required|integer|exists:app_quiz_answers,id',
         ]);
 
-        foreach ($request->suggestions as $suggestion) {
-            // إضافة الاقتراح العربي
-            PortalCardInputTranslation::create([
-                'input_id' => $id,
-                'locale' => 'ar',
-                'suggestion' => $suggestion['ar'],
-            ]);
+        // استرجاع السؤال
+        $question = AppQuizQuestion::findOrFail($questionId);
+        $question->question = $request->input('question');
+        $question->position = 0;  // يمكن تعديل هذه القيمة حسب الحاجة
+        $question->save();
 
-            // إضافة الاقتراح الإنجليزي
-            PortalCardInputTranslation::create([
-                'input_id' => $id,
-                'locale' => 'en',
-                'suggestion' => $suggestion['en'],
-            ]);
+        // تحديث الإجابات
+        foreach ($request->input('answers') as $index => $answerText) {
+            $isCorrect = $index + 1 == $request->input('correct_answer') ? 1 : 0;
+
+            // تحديث الإجابة بناءً على السؤال
+            $answer = AppQuizAnswer::where('question_id', $question->id)
+                ->where('id', $request->input('answer_ids')[$index])
+                ->first();
+
+            if ($answer) {
+                $answer->answer = $answerText;
+                $answer->is_correct = $isCorrect;
+                $answer->save();
+            }
         }
-        self::ClearCash();
-        return redirect()->back()->with('success', 'New suggestions added successfully!');
+
+        return redirect()->route($this->PrefixRoute . '.edit', ['id' => $questionId])->with('success', 'تم تحديث السؤال والإجابات بنجاح');
     }
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    public function deleteExistingSuggestions($id) {
-        PortalCardInputTranslation::findOrFail($id)->delete();
-        self::ClearCash();
-        return response()->json(['success' => true, 'message' => 'Suggestion deleted successfully!']);
-    }
+
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     public function delete($id) {
-        $deleteRow = PortalCardInput::where('id', $id)->firstOrFail();
+        $deleteRow = AppQuizQuestion::where('id', $id)->firstOrFail();
         $deleteRow->delete();
         self::ClearCash();
         return back()->with('confirmDelete', "");

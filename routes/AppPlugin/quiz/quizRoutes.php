@@ -12,7 +12,7 @@ Route::prefix('quiz')->name('PortalQuiz.')
         Route::get('/create', 'create')->name('create');
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::post('/store/', 'store')->name('store');
-        Route::post('/saveUpdate/{id}', 'saveUpdate')->name('saveUpdate');
+        Route::post('/update/{id}', 'update')->name('update');
         Route::get('/delete/{id}', 'delete')->name('delete');
         Route::post('/sortInput', 'sortInputSave')->name('sortInput');
         Route::post('/sortInputVip', 'sortInputVip')->name('sortInputVip');
