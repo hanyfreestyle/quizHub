@@ -9,7 +9,7 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('app_quiz_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('question')->nullable();
+            $table->text('question')->nullable();
             $table->integer('position')->nullable()->default(0);
             $table->timestamps();
         });
@@ -17,7 +17,7 @@ return new class extends Migration {
         Schema::create('app_quiz_answers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('question_id')->unsigned();
-            $table->string('answer')->nullable();
+            $table->text('answer')->nullable();
             $table->boolean('is_correct')->default(0);
             $table->foreign('question_id')->references('id')->on('app_quiz_questions')->onDelete('cascade'); // إنشاء العلاقة بين الأسئلة والإجابات
         });

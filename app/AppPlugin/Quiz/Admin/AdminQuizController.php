@@ -9,10 +9,12 @@ use App\AppPlugin\Quiz\Models\AppQuizAnswer;
 use App\AppPlugin\Quiz\Models\AppQuizQuestion;
 use App\Http\Controllers\AdminMainController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use Yajra\DataTables\Facades\DataTables;
 
 
 class AdminQuizController extends AdminMainController {
@@ -84,7 +86,7 @@ class AdminQuizController extends AdminMainController {
 
         $rowData = AppQuizQuestion::query()->with('answers')->get();
 
-        return view('AppPlugin.Quiz.index')->with([
+        return view('AppPlugin.Quiz.index_t')->with([
             'rowData' => $rowData,
             'pageData' => $pageData,
         ]);
@@ -159,8 +161,8 @@ class AdminQuizController extends AdminMainController {
         // التحقق من صحة البيانات
         $validated = $request->validate([
             'question' => 'required|string',
-            'answers' => 'required|array|min:4',
-            'answers.*' => 'string',
+            'answers' => 'required|array|min:2',
+            'answers.*' => 'nullable|string',
             'correct_answer' => 'required|integer|exists:app_quiz_answers,id',
         ]);
 
@@ -200,70 +202,57 @@ class AdminQuizController extends AdminMainController {
         return back()->with('confirmDelete', "");
     }
 
+
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    public function updateExistingSuggestions(Request $request, $id) {
-        $request->validate([
-            'existingSuggestions' => 'required|array',
-            'existingSuggestions.*.suggestion' => 'required|string|max:255',
-        ]);
-        foreach ($request->existingSuggestions as $suggestionId => $data) {
-            $suggestion = PortalCardInputTranslation::findOrFail($suggestionId);
-            $suggestion->update([
-                'suggestion' => $data['suggestion'],
-            ]);
+    public function DataTable(Request $request) {
+        if ($request->ajax()) {
+
+            $rowData = self::PageIndexQuery();
+            return self::PageViewColumns($rowData)->make(true);
         }
-        self::ClearCash();
-        return redirect()->back()->with('success', 'Suggestions updated successfully!');
     }
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    public function sortInputSave(Request $request) {
-        $positions = $request->positions;
-        foreach ($positions as $position) {
-            $id = $position[0];
-            $newPosition = $position[1];
-            $saveData = PortalCardInput::findOrFail($id);
-            $saveData->position = $newPosition;
-            $saveData->save();
-        }
-        self::ClearCash();
-        return response()->json(['success' => $positions]);
-    }
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    public function sortInputVip(Request $request) {
-        $positions = $request->positions;
-        foreach ($positions as $position) {
-            $id = $position[0];
-            $newPosition = $position[1];
-            $saveData = PortalCardInput::findOrFail($id);
-            $saveData->position_vip = $newPosition;
-            $saveData->save();
-        }
-        self::ClearCash();
-        return response()->json(['success' => $positions]);
+    public function PageIndexQuery() {
+        $table = 'app_quiz_questions';
+
+
+        $data = DB::table("$table")->where('id', '>', 0);
+
+
+        $data->select(
+            "$table.id as id",
+            "$table.question as question",
+        );
+
+
+        return $data;
     }
 
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    public function toggleStatus(Request $request) {
-        $request->validate([
-            'id' => 'required|integer',
-            'status' => 'required|boolean'
-        ]);
-        try {
-            $input = PortalCardInput::findOrFail($request->id); // تعديل بناءً على اسم الموديل
-            $input->is_active = $request->status;
-            $input->save();
-            self::ClearCash();
-            return response()->json(['success' => true, 'message' => 'Status updated successfully.']);
-        } catch (\Exception $e) {
-            return response()->json(['success' => false, 'message' => $e->getMessage()]);
-        }
-    }
+    public function PageViewColumns($data) {
+        return DataTables::query($data)
+            ->addIndexColumn()
+            ->editColumn('id', function ($row) {
+                return returnTableId($this->agent, $row);
+            })
 
+
+            ->editColumn('Edit', function ($row) {
+                return returnTableBut(route($this->PrefixRoute . ".edit", $row->id), __('admin/form.button_edit'), "i", "fas fa-pencil-alt");
+            })
+
+            ->editColumn('Delete', function ($row) {
+                return view('datatable.but')->with(['btype' => 'Delete', 'row' => $row])->render();
+            })
+
+
+            ->rawColumns(['Edit', "Delete", 'isActive', 'passwordEdit', 'isArchived', 'photo', 'ForceDelete', 'Restore']);
+    }
 
 }

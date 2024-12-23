@@ -32,7 +32,7 @@
                                 <label for="answers">الإجابات (يجب إضافة 4 إجابات على الأقل)</label>
                                 <div id="answers">
                                     @for($i = 0; $i < 4; $i++)
-                                        <input type="text" name="answers[]" class="form-control mb-2" placeholder="إجابة {{ $i + 1 }}" required>
+                                        <input type="text" name="answers[]" class="form-control mb-2" placeholder="إجابة {{ $i + 1 }}" @if($i < 2) required @endif>
                                     @endfor
                                 </div>
                             </div>

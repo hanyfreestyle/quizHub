@@ -31,7 +31,7 @@
                                 <label for="answers">الإجابات</label>
                                 <div id="answers">
                                     @foreach($question->answers as $index => $answer)
-                                        <input type="text" name="answers[]" class="form-control mb-2" value="{{ old('answers.' . $index, $answer->answer) }}" required>
+                                        <input type="text" name="answers[]" class="form-control mb-2" value="{{ old('answers.' . $index, $answer->answer) }}" @if($index < 2) required @endif >
                                         <input type="hidden" name="answer_ids[]" value="{{ $answer->id }}">
                                     @endforeach
                                 <!-- إضافة إجابات إضافية -->

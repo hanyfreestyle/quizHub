@@ -22,8 +22,8 @@ class PagesViewController extends WebMainController {
 
 //        $questions = AppQuizQuestion::query()->with('answers')->get();
 
-        $questions = AppQuizQuestion::query()->with(['answers' => function($query) {
-            $query->inRandomOrder();
+        $questions = AppQuizQuestion::query()->where('id',10)->with(['answers' => function($query) {
+            $query->whereNotNull('answer')->inRandomOrder();
         }])->get();
 
         return view('quiz.index')->with([
