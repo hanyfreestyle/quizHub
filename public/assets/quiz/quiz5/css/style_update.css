@@ -1,12 +1,12 @@
 body{
     font-family: "Tajawal", Courier, monospace;
+
 }
 #error{
 
     display: block;
     width: 90%;
     margin: auto!important;
-    /*background-color: darkred;*/
     height: 30px;
     margin-top:30px!important;
     text-align: right;

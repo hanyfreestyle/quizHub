@@ -94,13 +94,16 @@ main {
 }
 
 .option {
-    width: 44%;
+    width: 100%;
     position: relative;
     height: 80px;
     margin-bottom: 25px;
     display: grid;
     align-content: center;
 }
+
+
+
 
 .option input {
     -webkit-appearance: none;
@@ -136,23 +139,25 @@ main {
 
 
 .option label {
-    font-size: 28px;
-    color: rgb(163, 163, 163);
+    font-size: 20px;
+    color: rgba(0, 0, 0,1);
     font-weight: 500;
     position: relative;
 
     display: flex;
-    justify-content: start;
+    justify-content: end;
     align-items: center;
     height: inherit;
     text-align: right;
     pointer-events: none;
+
+    padding-right: 50px;
 }
 
 .option label::before {
-    content: "X";
+    content: "";
     display: inline-block;
-    background-color: rgb(163, 163, 163);
+    background:none;
     width: 88px;
     height: inherit;
     display: grid;
@@ -167,19 +172,19 @@ main {
 }
 
 .option:nth-child(1) label::before {
-    content: "A";
+    content: "";
 }
 
 .option:nth-child(2) label::before {
-    content: "B";
+    content: "";
 }
 
 .option:nth-child(3) label::before {
-    content: "C";
+    content: "";
 }
 
 .option:nth-child(4) label::before {
-    content: "D";
+    content: "";
 }
 
 .option input:checked:before {
@@ -191,10 +196,39 @@ main {
 }
 
 .option input:checked ~ label::before {
-    color: rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, .7);
+    /*color: rgb(255, 255, 255);*/
+    /*color: rgb(255, 255, 255);*/
+    /*background-color: rgba(0, 0, 0, .7);*/
 }
+
+@media (max-width: 576px) {
+
+    .question {
+        font-size: 20px!important;
+
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .option {
+
+        height: auto!important;
+
+        border-radius: unset;
+
+        padding: 20px 10px;
+    }
+
+    .option input {
+
+        border-radius: 2px;
+
+    }
+}
+
 
 .nextPrev {
     display: flex;
