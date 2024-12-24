@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" {!!htmlArDir()!!} >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,19 +9,6 @@
 {{--    {!! SEO::generate() !!}--}}
     <x-site.def.fav-icon/>
     {!! (new \App\Helpers\MinifyTools)->MinifyCss('css/bootstrap.min.css',$cssMinifyType,$cssReBuild) !!}
-
-    <link href="https://fonts.googleapis.com/css?family=Outfit:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&amp;family=Montserrat:wght@200;300;400;500;600;700;800&amp;family=Nunito:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&amp;family=Montserrat:wght@200;300;400;500;600;700;800&amp;family=Nunito:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-{{--    <link rel="stylesheet" type="text/css" href="{{defPortalAssets('css/font-awesome.css') }}">--}}
-    <link rel="stylesheet" type="text/css" href="{{defPortalAssets('css/vendors/icofont.css') }}">
-    <link rel="icon" href="{{defPortalAssets('svg/landing-icons.svg') }}">
-
 
     <link rel="stylesheet" type="text/css" href="{{defPortalAssets('css/vendors/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{defPortalAssets('css/vendors/slick-theme.css') }}">
@@ -43,6 +30,8 @@
     @if(thisCurrentLocale() == 'ar')
 
     @endif
+
+    {!! $MinifyTools->setWebAssets('assets/portal/')->MinifyCss('css/style_landing.css','Seo',true) !!}
     <x-admin.web.google-tags type="tag_manager_code_header"/>
 </head>
 

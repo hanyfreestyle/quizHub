@@ -35,7 +35,7 @@ if (config('app.WEB_VIEW')) {
 
 
 Route::group(['middleware' => ['UnderConstruction', 'MinifyHtml']], function () {
-    Route::get('/quiz/', [PagesViewController::class, 'quizView'])->name('web.quiz.quizView');
+    Route::get('/quiz/{unitId}/{sectionId}', [PagesViewController::class, 'quizView'])->name('web.quiz.quizView');
 });
 
 Route::group(['middleware' => ['UnderConstruction', 'MinifyHtml']], function () {
