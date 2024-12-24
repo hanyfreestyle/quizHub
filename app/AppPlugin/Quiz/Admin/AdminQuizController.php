@@ -195,15 +195,24 @@ class AdminQuizController extends AdminMainController {
     public function store(Request $request) {
         // التحقق من صحة البيانات
         $validated = $request->validate([
-//            'question' => 'required|string',
-//            'answers' => 'required|array|min:4',
-//            'answers.*' => 'string',
-//            'correct_answer' => 'required|integer|exists:app_quiz_answers,id',
+            'question' => 'required|string',
+            'answers' => 'required|array|min:4',
+            'answers.*' => 'nullable|string',
+            'correct_answer' => 'required|integer',
+            'unit_id' => 'required',
+            'section_id' => 'required',
         ]);
 
         // إضافة السؤال
         $question = new AppQuizQuestion();
         $question->question = $request->input('question');
+
+        $question->class_id = $request->input('class_id');
+        $question->subject_id = $request->input('subject_id');
+        $question->term_id = $request->input('term_id');
+        $question->unit_id = $request->input('unit_id');
+        $question->section_id = $request->input('section_id');
+
         $question->position = 0;
         $question->save();
 
@@ -242,17 +251,26 @@ class AdminQuizController extends AdminMainController {
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     public function update(Request $request, $questionId) {
         // التحقق من صحة البيانات
+
         $validated = $request->validate([
             'question' => 'required|string',
             'answers' => 'required|array|min:2',
             'answers.*' => 'nullable|string',
-            'correct_answer' => 'required|integer|exists:app_quiz_answers,id',
+            'correct_answer' => 'required|integer',
+            'unit_id' => 'required',
+            'section_id' => 'required',
         ]);
 
         // استرجاع السؤال
         $question = AppQuizQuestion::findOrFail($questionId);
         $question->question = $request->input('question');
-        $question->position = 0;  // يمكن تعديل هذه القيمة حسب الحاجة
+
+        $question->class_id = $request->input('class_id');
+        $question->subject_id = $request->input('subject_id');
+        $question->term_id = $request->input('term_id');
+        $question->unit_id = $request->input('unit_id');
+        $question->section_id = $request->input('section_id');
+
         $question->save();
 
         // تحديث الإجابات

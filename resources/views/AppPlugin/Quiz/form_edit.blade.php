@@ -11,7 +11,8 @@
                 @endif
 
 
-                    <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
 
 
                         @if(session('success'))
@@ -20,6 +21,16 @@
 
                         <form action="{{ route($PrefixRoute.'.update', ['id' => $question->id]) }}" method="POST">
                             @csrf
+                            <div class="row">
+                                <input type="hidden" name="class_id" value="1">
+                                <input type="hidden" name="subject_id" value="1">
+                                <input type="hidden" name="term_id" value="1">
+                                <x-admin.form.select-arr name="unit_id" sendvalue="{{old('unit_id',$question->unit_id)}}" :labelview="true"
+                                                         select-type="DefCat" :send-arr="$quizCat['units']" label="الوحدة" :filter-form="true" col="2"/>
+                                <x-admin.form.select-arr name="section_id" sendvalue="{{old('section_id',$question->section_id)}}" :labelview="true"
+                                                         select-type="DefCat" :send-arr="$quizCat['sections']" label="القسم" :filter-form="true" col="2"/>
+
+                            </div>
 
 
                             <div class="form-group">
@@ -53,6 +64,7 @@
                             <button type="submit" class="btn btn-primary">تحديث السؤال</button>
                         </form>
                     </div>
+                </div>
 
 
             </x-admin.card.normal>
