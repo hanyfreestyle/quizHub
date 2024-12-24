@@ -6,6 +6,15 @@
 
 @section('content')
     <x-admin.hmtl.breadcrumb :pageData="$pageData"/>
+
+    <x-admin.hmtl.section>
+        <div class="row mb-2">
+            <div class="col-12">
+                <x-app-plugin.quiz.filter-form form-name="{{$formName}}" :row="$rowData" :config="$config"/>
+            </div>
+        </div>
+    </x-admin.hmtl.section>
+
     <x-admin.hmtl.section>
         <div class="row mb-2">
             <div class="col-12 dir_button">

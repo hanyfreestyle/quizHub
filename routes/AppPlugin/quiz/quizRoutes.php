@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('quiz')->name('PortalQuiz.')
     ->controller(AdminQuizController::class)->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::post('/', 'index')->name('filter');
         Route::get('/DataTable', 'DataTable')->name('DataTable');
         Route::get('/disabled', 'index')->name('indexDisabled');
         Route::get('/vip', 'index')->name('indexVip');

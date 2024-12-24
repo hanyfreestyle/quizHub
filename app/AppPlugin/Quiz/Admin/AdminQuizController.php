@@ -51,22 +51,9 @@ class AdminQuizController extends AdminMainController {
 
         $this->quizCat = QuizConfigTraits::loadQuizCat();
         View::share('quizCat', $this->quizCat);
+        $this->formName = "FilterEslamDarwish";
+        View::share('formName', $this->formName);
 
-        $catArr['inputType'] = [
-            (object)['id' => 'text', 'name' => 'Text'],
-            (object)['id' => 'url', 'name' => 'Url'],
-            (object)['id' => 'number', 'name' => 'Number'],
-            (object)['id' => 'email', 'name' => 'Email'],
-        ];
-        $catArr['inputDir'] = [
-            (object)['id' => 'ar', 'name' => 'Ar'],
-            (object)['id' => 'en', 'name' => 'En'],
-        ];
-        $catArr['inputVip'] = [
-            (object)['id' => '0', 'name' => 'غير فعال'],
-            (object)['id' => '1', 'name' => 'موصى بيه'],
-        ];
-        View::share('catArr', $catArr);
 
 
         $permission = [
@@ -85,27 +72,12 @@ class AdminQuizController extends AdminMainController {
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    public function index() {
+    public function index(Request $request) {
         $pageData = $this->pageData;
         $pageData['ViewType'] = "List";
 
-//        $rowData = AppQuizQuestion::query()->with('answers')->get();
-//        foreach ($rowData as $data){
-//            $data->class_id = 1;
-//            $data->subject_id = 1;
-//            $data->term_id = 1;
-//            $data->unit_id = 1;
-//            $data->save();
-//        }
-
-//        $rowData = AppQuizQuestion::query()->whereBetween('id', [61, 80])->get();
-//
-//        foreach ($rowData as $data){
-//            $data->section_id = 3;
-//            $data->save();
-//        }
-
-        $rowData = AppQuizQuestion::query()->with('answers')->get();
+        $session = self::getSessionData($request);
+        $rowData = self::QuizDataFilterQ(self::indexQuery(), $session);
 
         return view('AppPlugin.Quiz.index_t')->with([
             'rowData' => $rowData,
@@ -113,6 +85,96 @@ class AdminQuizController extends AdminMainController {
         ]);
 
     }
+
+
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+    public function DataTable(Request $request) {
+        if ($request->ajax()) {
+            $session = self::getSessionData($request);
+            $rowData = self::QuizDataFilterQ(self::indexQuery(), $session);
+            return self::PageViewColumns($rowData)->make(true);
+        }
+    }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+    public function indexQuery() {
+        $table = 'app_quiz_questions';
+        $data = DB::table("$table")->where('id', '>', 0);
+
+        $data->select(
+            "$table.id as id",
+            "$table.class_id as class_id",
+            "$table.subject_id as subject_id",
+            "$table.term_id  as term_id",
+            "$table.unit_id as unit_id",
+            "$table.section_id as section_id",
+            "$table.question as question",
+        );
+
+        return $data;
+    }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+    static function QuizDataFilterQ($query, $session, $order = null) {
+
+        if (isset($session['section_id']) and $session['section_id'] != null) {
+            $query->where('section_id', $session['section_id']);
+        }
+
+        if (isset($session['unit_id']) and $session['unit_id'] != null) {
+            $query->where('unit_id', $session['unit_id']);
+        }
+
+//        if (isset($session['gender_id']) and $session['gender_id'] != null) {
+//            $query->where('gender_id', $session['gender_id']);
+//        }
+//
+//        if (isset($session['country_id']) and $session['country_id'] != null) {
+//            $query->where('country_id', $session['country_id']);
+//        }
+//
+//        if (isset($session['city_id']) and $session['city_id'] != null) {
+//            $query->where('city_id', $session['city_id']);
+//        }
+//
+//        if (isset($session['area_id']) and $session['area_id'] != null) {
+//            $query->where('area_id', $session['area_id']);
+//        }
+
+        return $query;
+    }
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+    public function PageViewColumns($data) {
+
+
+        return DataTables::query($data)
+            ->addIndexColumn()
+            ->editColumn('id', function ($row) {
+                return returnTableId($this->agent, $row);
+            })
+            ->editColumn('unit_id', function ($row) {
+                $name = getNameFromCollect($this->quizCat['units'], $row->unit_id, 'name');
+                return $name;
+            })
+            ->editColumn('section_id', function ($row) {
+                $name = getNameFromCollect($this->quizCat['sections'], $row->section_id, 'name');
+                return $name;
+            })
+            ->editColumn('Edit', function ($row) {
+                return returnTableBut(route($this->PrefixRoute . ".edit", $row->id), __('admin/form.button_edit'), "i", "fas fa-pencil-alt");
+            })
+            ->editColumn('Delete', function ($row) {
+                return view('datatable.but')->with(['btype' => 'Delete', 'row' => $row])->render();
+            })
+            ->rawColumns(['Edit', "Delete", 'isActive', 'passwordEdit', 'isArchived', 'photo', 'ForceDelete', 'Restore']);
+    }
+
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -212,8 +274,6 @@ class AdminQuizController extends AdminMainController {
         return redirect()->route($this->PrefixRoute . '.edit', ['id' => $questionId])->with('success', 'تم تحديث السؤال والإجابات بنجاح');
     }
 
-
-
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     public function delete($id) {
@@ -225,61 +285,5 @@ class AdminQuizController extends AdminMainController {
 
 
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    public function DataTable(Request $request) {
-        if ($request->ajax()) {
-
-            $rowData = self::PageIndexQuery();
-            return self::PageViewColumns($rowData)->make(true);
-        }
-    }
-
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    public function PageIndexQuery() {
-        $table = 'app_quiz_questions';
-        $data = DB::table("$table")->where('id', '>', 0);
-
-        $data->select(
-            "$table.id as id",
-            "$table.class_id as class_id",
-            "$table.subject_id as subject_id",
-            "$table.term_id  as term_id",
-            "$table.unit_id as unit_id",
-            "$table.section_id as section_id",
-            "$table.question as question",
-        );
-
-        return $data;
-    }
-
-
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    public function PageViewColumns($data) {
-
-
-        return DataTables::query($data)
-            ->addIndexColumn()
-            ->editColumn('id', function ($row) {
-                return returnTableId($this->agent, $row);
-            })
-            ->editColumn('unit_id', function ($row) {
-                $name = getNameFromCollect($this->quizCat['units'], $row->unit_id, 'name');
-                return $name;
-            })
-            ->editColumn('section_id', function ($row) {
-                $name = getNameFromCollect($this->quizCat['sections'], $row->section_id, 'name');
-                return $name;
-            })
-            ->editColumn('Edit', function ($row) {
-                return returnTableBut(route($this->PrefixRoute . ".edit", $row->id), __('admin/form.button_edit'), "i", "fas fa-pencil-alt");
-            })
-            ->editColumn('Delete', function ($row) {
-                return view('datatable.but')->with(['btype' => 'Delete', 'row' => $row])->render();
-            })
-            ->rawColumns(['Edit', "Delete", 'isActive', 'passwordEdit', 'isArchived', 'photo', 'ForceDelete', 'Restore']);
-    }
 
 }
