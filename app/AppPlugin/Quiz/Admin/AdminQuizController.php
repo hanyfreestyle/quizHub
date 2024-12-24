@@ -7,6 +7,7 @@ use App\AppPlugin\PortalCard\Models\PortalCardInput;
 use App\AppPlugin\PortalCard\Models\PortalCardInputTranslation;
 use App\AppPlugin\Quiz\Models\AppQuizAnswer;
 use App\AppPlugin\Quiz\Models\AppQuizQuestion;
+use App\AppPlugin\Quiz\Traits\QuizConfigTraits;
 use App\Http\Controllers\AdminMainController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -47,6 +48,10 @@ class AdminQuizController extends AdminMainController {
         View::share('Config', $this->config);
         self::loadConstructData($sendArr);
 
+
+        $this->quizCat = QuizConfigTraits::loadQuizCat();
+        View::share('quizCat', $this->quizCat);
+
         $catArr['inputType'] = [
             (object)['id' => 'text', 'name' => 'Text'],
             (object)['id' => 'url', 'name' => 'Url'],
@@ -83,6 +88,22 @@ class AdminQuizController extends AdminMainController {
     public function index() {
         $pageData = $this->pageData;
         $pageData['ViewType'] = "List";
+
+//        $rowData = AppQuizQuestion::query()->with('answers')->get();
+//        foreach ($rowData as $data){
+//            $data->class_id = 1;
+//            $data->subject_id = 1;
+//            $data->term_id = 1;
+//            $data->unit_id = 1;
+//            $data->save();
+//        }
+
+//        $rowData = AppQuizQuestion::query()->whereBetween('id', [61, 80])->get();
+//
+//        foreach ($rowData as $data){
+//            $data->section_id = 3;
+//            $data->save();
+//        }
 
         $rowData = AppQuizQuestion::query()->with('answers')->get();
 
@@ -218,16 +239,17 @@ class AdminQuizController extends AdminMainController {
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     public function PageIndexQuery() {
         $table = 'app_quiz_questions';
-
-
         $data = DB::table("$table")->where('id', '>', 0);
-
 
         $data->select(
             "$table.id as id",
+            "$table.class_id as class_id",
+            "$table.subject_id as subject_id",
+            "$table.term_id  as term_id",
+            "$table.unit_id as unit_id",
+            "$table.section_id as section_id",
             "$table.question as question",
         );
-
 
         return $data;
     }
@@ -236,22 +258,27 @@ class AdminQuizController extends AdminMainController {
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     public function PageViewColumns($data) {
+
+
         return DataTables::query($data)
             ->addIndexColumn()
             ->editColumn('id', function ($row) {
                 return returnTableId($this->agent, $row);
             })
-
-
+            ->editColumn('unit_id', function ($row) {
+                $name = getNameFromCollect($this->quizCat['units'], $row->unit_id, 'name');
+                return $name;
+            })
+            ->editColumn('section_id', function ($row) {
+                $name = getNameFromCollect($this->quizCat['sections'], $row->section_id, 'name');
+                return $name;
+            })
             ->editColumn('Edit', function ($row) {
                 return returnTableBut(route($this->PrefixRoute . ".edit", $row->id), __('admin/form.button_edit'), "i", "fas fa-pencil-alt");
             })
-
             ->editColumn('Delete', function ($row) {
                 return view('datatable.but')->with(['btype' => 'Delete', 'row' => $row])->render();
             })
-
-
             ->rawColumns(['Edit', "Delete", 'isActive', 'passwordEdit', 'isArchived', 'photo', 'ForceDelete', 'Restore']);
     }
 

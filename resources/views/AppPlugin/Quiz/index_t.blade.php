@@ -20,8 +20,9 @@
                 <thead>
                 <tr>
                     <th class="TD_20">#</th>
-                    <th class="TD_50 desktop">السؤال</th>
-{{--                    <th class="TD_200 ">{{__('admin/usersApp.table_name')}}</th>--}}
+                    <th class="TD_250 desktop">السؤال</th>
+                    <th class="TD_80 ">الوحدة</th>
+                    <th class="TD_80 ">القسم</th>
 {{--                    <th class="TD_100">{{__('admin/usersApp.table_phone')}}</th>--}}
 {{--                    <th class="TD_100 desktop">{{__('admin/usersApp.table_email')}}</th>--}}
 
@@ -55,7 +56,9 @@
                     {data: 'id', name: 'id', orderable: false, searchable: true, className: "remove_id"},
 
                     {data: 'question', name: 'question', orderable: true, searchable: true},
-                    {{--{data: 'phone', name: 'users_app.phone', orderable: true, searchable: true, className: "text-center"},--}}
+
+                    {data: 'unit_id', name: 'unit_id', orderable: true, searchable: false, className: "text-center"},
+                    {data: 'section_id', name: 'section_id', orderable: true, searchable: false, className: "text-center"},
                     {{--{data: 'email', name: 'users_app.email', orderable: true, searchable: true, className: "text-center"},--}}
                     {{--@if($pageViewIndex == "SoftDelete")--}}
                     {{--@include('datatable.index_action_but',['type'=> 'deleted_at','view'=>true  ])--}}

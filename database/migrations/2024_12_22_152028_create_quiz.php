@@ -9,6 +9,12 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('app_quiz_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('class_id')->unsigned();
+            $table->bigInteger('subject_id')->unsigned();
+            $table->bigInteger('term_id')->unsigned();
+            $table->bigInteger('unit_id')->unsigned();
+            $table->bigInteger('section_id')->unsigned();
+
             $table->text('question')->nullable();
             $table->integer('position')->nullable()->default(0);
             $table->timestamps();
